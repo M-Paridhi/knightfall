@@ -42,3 +42,11 @@ add_executable(perft
     ${CORE_SOURCES}
 )
 target_include_directories(perft PRIVATE src)
+
+# Interactive terminal game
+add_executable(play
+    src/play.cpp
+    ${CORE_SOURCES}
+    ${SEARCH_SOURCES}
+)
+target_include_directories(play PRIVATE src)

@@ -17,7 +17,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -33,7 +34,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -51,6 +53,13 @@
 					"id" : "perft::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-perft-Debug-1199c48629392e585cc3.json",
 					"name" : "perft",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "play::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-play-Debug-e938928ffd2b69d8eefa.json",
+					"name" : "play",
 					"projectIndex" : 0
 				}
 			]

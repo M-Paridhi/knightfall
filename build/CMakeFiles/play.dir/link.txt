@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\play.dir/objects.a
+C:\MinGW\bin\ar.exe qc CMakeFiles\play.dir/objects.a @CMakeFiles\play.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\play.dir/objects.a -Wl,--no-whole-archive -o play.exe -Wl,--out-implib,libplay.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\play.dir\linkLibs.rsp

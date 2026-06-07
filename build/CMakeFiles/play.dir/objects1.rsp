@@ -1,0 +1,1 @@
+CMakeFiles/play.dir/src/play.cpp.obj CMakeFiles/play.dir/src/core/bitboard.cpp.obj CMakeFiles/play.dir/src/core/board.cpp.obj CMakeFiles/play.dir/src/core/attacks.cpp.obj CMakeFiles/play.dir/src/core/movegen.cpp.obj CMakeFiles/play.dir/src/search/evaluate.cpp.obj CMakeFiles/play.dir/src/search/search.cpp.obj CMakeFiles/play.dir/src/search/tt.cpp.obj

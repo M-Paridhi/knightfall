@@ -1,4 +1,5 @@
 C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/build/CMakeFiles/knightfall.dir
 C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/build/CMakeFiles/perft.dir
+C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/build/CMakeFiles/play.dir
 C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/build/CMakeFiles/edit_cache.dir
 C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/build/CMakeFiles/rebuild_cache.dir

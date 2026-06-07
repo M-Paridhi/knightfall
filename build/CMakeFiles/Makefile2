@@ -64,11 +64,13 @@ CMAKE_BINARY_DIR = "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knight
 # The main recursive "all" target.
 all: CMakeFiles/knightfall.dir/all
 all: CMakeFiles/perft.dir/all
+all: CMakeFiles/play.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/knightfall.dir/codegen
 codegen: CMakeFiles/perft.dir/codegen
+codegen: CMakeFiles/play.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -78,6 +80,7 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/knightfall.dir/clean
 clean: CMakeFiles/perft.dir/clean
+clean: CMakeFiles/play.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -143,6 +146,38 @@ CMakeFiles/perft.dir/codegen:
 CMakeFiles/perft.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\perft.dir\build.make CMakeFiles/perft.dir/clean
 .PHONY : CMakeFiles/perft.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/play.dir
+
+# All Build rule for target.
+CMakeFiles/play.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=17,18,19,20,21,22,23,24,25 "Built target play"
+.PHONY : CMakeFiles/play.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/play.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/play.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" 0
+.PHONY : CMakeFiles/play.dir/rule
+
+# Convenience name for target.
+play: CMakeFiles/play.dir/rule
+.PHONY : play
+
+# codegen rule for target.
+CMakeFiles/play.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=17,18,19,20,21,22,23,24,25 "Finished codegen for target play"
+.PHONY : CMakeFiles/play.dir/codegen
+
+# clean rule for target.
+CMakeFiles/play.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/clean
+.PHONY : CMakeFiles/play.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
