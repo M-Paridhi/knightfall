@@ -257,35 +257,7 @@ Perft (performance test) counts leaf nodes at a fixed depth. Any deviation from 
 
 ---
 
-## Development Log — Bugs Found
 
-Building a chess engine from scratch involves subtle bugs that only manifest at depth 4+. Notable ones caught during development:
-
-| Bug | Symptom | Root Cause |
-|---|---|---|
-| `capturedPiece` history | Captures not undone | History saved before `capturedPiece` was set |
-| Silent `movePiece` failures | Board corruption at depth 3+ | A failed internal move left board in partial state; subsequent unmake corrupted bitboards |
-| Magic bitboard collisions | Wrong rook attacks | Two occupancy patterns mapped to same table index; fixed by switching to classical ray attacks |
-| Zobrist hash in `unmakeMove` | Hash wrong after undo | `movePieceSilent` must NOT update hash — hash is already correctly restored from history |
-
----
-
-## Roadmap
-
-### Phase 4 — Visualization & Polish (upcoming)
-- [ ] Web-based board visualization (WebSocket + HTML/JS)
-- [ ] Real-time search tree display showing alpha-beta cutoffs
-- [ ] Evaluation bar
-- [ ] Principal variation display
-- [ ] NPS benchmark report
-
-### Phase 5 — Stronger Play
-- [ ] Opening book (Italian, Ruy Lopez, Sicilian, Queen's Gambit)
-- [ ] Null move pruning (skip a move to detect zugzwang)
-- [ ] Late move reductions (search unlikely moves to shallower depth)
-- [ ] PGN export
-- [ ] Aspiration windows (narrow the search window around expected score)
-- [ ] Endgame tablebases
 
 ### Future
 - [ ] NNUE evaluation (learned from position data)
