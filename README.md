@@ -293,17 +293,6 @@ Building a chess engine from scratch involves subtle bugs that only manifest at 
 
 ---
 
-## Resume Bullets (What This Project Demonstrates)
-
-> **Knightfall Chess Engine** | C++14, CMake, UCI Protocol
->
-> - Implemented a bitboard-based chess engine with fully legal move generation verified via perft testing to depth 5 (4.8M nodes) across 5 standard positions, catching and fixing 4 non-trivial bugs including a Zobrist hash corruption in `unmakeMove` and magic bitboard hash collisions
-> - Built an alpha-beta search with iterative deepening, quiescence search, killer/history move ordering, and a 16MB Zobrist-keyed transposition table with exact/bound-type entries, reaching depth 7 in ~300ms
-> - Designed a clean UCI-compliant engine with zero global state, strict module boundaries (`core` → `search` → `protocol`), and a documented architecture suitable for extension
-> - Engineered classical ray-based sliding attack generation after diagnosing hash collisions in magic bitboard tables, documenting the tradeoff between implementation complexity and correctness guarantees
-
----
-
 ## License
 
 MIT — use, modify, and distribute freely.
