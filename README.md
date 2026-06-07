@@ -295,7 +295,9 @@ Building a chess engine from scratch involves subtle bugs that only manifest at 
 
 ## License
 
-MIT — use, modify, and distribute freely.
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+Copyright © 2026 Paridhi Mittal
 
 ---
 
