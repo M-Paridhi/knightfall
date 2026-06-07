@@ -13,6 +13,10 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/core/board.cpp" "CMakeFiles/knightfall.dir/src/core/board.cpp.obj" "gcc" "CMakeFiles/knightfall.dir/src/core/board.cpp.obj.d"
   "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/core/movegen.cpp" "CMakeFiles/knightfall.dir/src/core/movegen.cpp.obj" "gcc" "CMakeFiles/knightfall.dir/src/core/movegen.cpp.obj.d"
   "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/main.cpp" "CMakeFiles/knightfall.dir/src/main.cpp.obj" "gcc" "CMakeFiles/knightfall.dir/src/main.cpp.obj.d"
+  "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/protocol/uci.cpp" "CMakeFiles/knightfall.dir/src/protocol/uci.cpp.obj" "gcc" "CMakeFiles/knightfall.dir/src/protocol/uci.cpp.obj.d"
+  "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/search/evaluate.cpp" "CMakeFiles/knightfall.dir/src/search/evaluate.cpp.obj" "gcc" "CMakeFiles/knightfall.dir/src/search/evaluate.cpp.obj.d"
+  "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/search/search.cpp" "CMakeFiles/knightfall.dir/src/search/search.cpp.obj" "gcc" "CMakeFiles/knightfall.dir/src/search/search.cpp.obj.d"
+  "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/search/tt.cpp" "CMakeFiles/knightfall.dir/src/search/tt.cpp.obj" "gcc" "CMakeFiles/knightfall.dir/src/search/tt.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

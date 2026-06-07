@@ -1,6 +1,10 @@
 #include "bitboard.h"
 #include <sstream>
 
+// ──────────────────────────────────────────
+//  Single-square bitboards
+//  SquareBB[s] has exactly bit s set
+// ──────────────────────────────────────────
 const Bitboard SquareBB[64] = {
     1ULL <<  0, 1ULL <<  1, 1ULL <<  2, 1ULL <<  3,
     1ULL <<  4, 1ULL <<  5, 1ULL <<  6, 1ULL <<  7,
@@ -20,28 +24,37 @@ const Bitboard SquareBB[64] = {
     1ULL << 60, 1ULL << 61, 1ULL << 62, 1ULL << 63
 };
 
+// ──────────────────────────────────────────
+//  File masks (all squares on a given file)
+// ──────────────────────────────────────────
 const Bitboard FileMask[8] = {
-    0x0101010101010101ULL,
-    0x0202020202020202ULL,
-    0x0404040404040404ULL,
-    0x0808080808080808ULL,
-    0x1010101010101010ULL,
-    0x2020202020202020ULL,
-    0x4040404040404040ULL,
-    0x8080808080808080ULL
+    0x0101010101010101ULL,  // A-file: a1,a2,a3,a4,a5,a6,a7,a8
+    0x0202020202020202ULL,  // B-file
+    0x0404040404040404ULL,  // C-file
+    0x0808080808080808ULL,  // D-file
+    0x1010101010101010ULL,  // E-file
+    0x2020202020202020ULL,  // F-file
+    0x4040404040404040ULL,  // G-file
+    0x8080808080808080ULL   // H-file
 };
 
+// ──────────────────────────────────────────
+//  Rank masks (all squares on a given rank)
+// ──────────────────────────────────────────
 const Bitboard RankMask[8] = {
-    0x00000000000000FFULL,
-    0x000000000000FF00ULL,
-    0x0000000000FF0000ULL,
-    0x00000000FF000000ULL,
-    0x000000FF00000000ULL,
-    0x0000FF0000000000ULL,
-    0x00FF000000000000ULL,
-    0xFF00000000000000ULL
+    0x00000000000000FFULL,  // Rank 1: a1–h1
+    0x000000000000FF00ULL,  // Rank 2: a2–h2
+    0x0000000000FF0000ULL,  // Rank 3
+    0x00000000FF000000ULL,  // Rank 4
+    0x000000FF00000000ULL,  // Rank 5
+    0x0000FF0000000000ULL,  // Rank 6
+    0x00FF000000000000ULL,  // Rank 7
+    0xFF00000000000000ULL   // Rank 8: a8–h8
 };
 
+// ──────────────────────────────────────────
+//  Debug: print bitboard as 8x8 grid
+// ──────────────────────────────────────────
 std::string bitboardToString(Bitboard bb) {
     std::ostringstream oss;
     oss << "\n";

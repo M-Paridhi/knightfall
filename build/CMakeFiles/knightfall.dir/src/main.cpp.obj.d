@@ -1,7 +1,8 @@
 CMakeFiles/knightfall.dir/src/main.cpp.obj: \
  C:\Users\paridhi\ mittal\OneDrive\Documents\New\ folder\knightfall\src\main.cpp \
- C:\Users\paridhi\ mittal\OneDrive\Documents\New\ folder\knightfall\src\core/board.h \
- C:\Users\paridhi\ mittal\OneDrive\Documents\New\ folder\knightfall\src\core/types.h \
+ C:\Users\paridhi\ mittal\OneDrive\Documents\New\ folder\knightfall\src\protocol/uci.h \
+ C:/Users/PARIDH~1/OneDrive/DOCUME~1/NEWFOL~1/KNIGHT~1/src/core/board.h \
+ C:/Users/PARIDH~1/OneDrive/DOCUME~1/NEWFOL~1/KNIGHT~1/src/core/types.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstdint \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++config.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\os_defines.h \
@@ -11,7 +12,7 @@ CMakeFiles/knightfall.dir/src/main.cpp.obj: \
  c:\mingw\include\msvcrtver.h c:\mingw\include\w32api.h \
  c:\mingw\include\sdkddkver.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\stddef.h \
- C:\Users\paridhi\ mittal\OneDrive\Documents\New\ folder\knightfall\src\core/bitboard.h \
+ C:/Users/PARIDH~1/OneDrive/DOCUME~1/NEWFOL~1/KNIGHT~1/src/core/bitboard.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cassert \
  c:\mingw\include\assert.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\string \
@@ -83,28 +84,14 @@ CMakeFiles/knightfall.dir/src/main.cpp.obj: \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\functional_hash.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hash_bytes.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_string.tcc \
- C:\Users\paridhi\ mittal\OneDrive\Documents\New\ folder\knightfall\src\core/move.h \
- C:\Users\paridhi\ mittal\OneDrive\Documents\New\ folder\knightfall\src\core/attacks.h \
- C:\Users\paridhi\ mittal\OneDrive\Documents\New\ folder\knightfall\src\core/movegen.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ostream \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ios \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ios_base.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\system_error \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\error_constants.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\stdexcept \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\streambuf \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\streambuf.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_ios.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_facets.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cwctype \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_base.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\streambuf_iterator.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\ctype_inline.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_facets.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_ios.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc
+ C:/Users/PARIDH~1/OneDrive/DOCUME~1/NEWFOL~1/KNIGHT~1/src/core/move.h \
+ C:/Users/PARIDH~1/OneDrive/DOCUME~1/NEWFOL~1/KNIGHT~1/src/search/search.h \
+ C:/Users/PARIDH~1/OneDrive/DOCUME~1/NEWFOL~1/KNIGHT~1/src/core/movegen.h \
+ C:/Users/PARIDH~1/OneDrive/DOCUME~1/NEWFOL~1/KNIGHT~1/src/core/attacks.h \
+ C:/Users/PARIDH~1/OneDrive/DOCUME~1/NEWFOL~1/KNIGHT~1/src/search/evaluate.h \
+ C:/Users/PARIDH~1/OneDrive/DOCUME~1/NEWFOL~1/KNIGHT~1/src/search/tt.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\chrono \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ratio \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\limits \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ctime c:\mingw\include\time.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\parse_numbers.h

@@ -7,55 +7,46 @@
 //  Core bit operations
 // ──────────────────────────────────────────
 
-// Set/clear/test individual bits
-inline void   setBit(Bitboard& bb, Square s)   { bb |=  (1ULL << s); }
-inline void   clearBit(Bitboard& bb, Square s) { bb &= ~(1ULL << s); }
-inline bool   testBit(Bitboard  bb, Square s)  { return (bb >> s) & 1; }
+inline void setBit  (Bitboard& bb, Square s) { bb |=  (1ULL << s); }
+inline void clearBit(Bitboard& bb, Square s) { bb &= ~(1ULL << s); }
+inline bool testBit (Bitboard  bb, Square s) { return (bb >> s) & 1; }
 
-// Number of set bits (population count)
-// __builtin_popcountll is a GCC/Clang intrinsic → single CPU instruction
+// Population count — number of set bits (single CPU instruction)
 inline int popcount(Bitboard bb) {
     return __builtin_popcountll(bb);
 }
 
-// Index of the least significant set bit
-// Use this to iterate over all set squares in a bitboard
+// Index of lowest set bit
 inline Square lsb(Bitboard bb) {
     assert(bb != 0);
-    return Square(__builtin_ctzll(bb));  // count trailing zeros
+    return Square(__builtin_ctzll(bb));
 }
 
-// Extract (and clear) the least significant bit
-// The core of our "iterate over pieces" loop
+// Extract lowest set bit index AND clear it from bb
+// Use this to loop over all squares in a bitboard
 inline Square popLsb(Bitboard& bb) {
     Square s = lsb(bb);
-    bb &= bb - 1;   // clears the lowest set bit — classic bit trick
+    bb &= bb - 1;   // clears the lowest set bit (classic bit trick)
     return s;
 }
 
 // ──────────────────────────────────────────
 //  Precomputed masks (defined in bitboard.cpp)
 // ──────────────────────────────────────────
-extern const Bitboard FileMask[8];   // all squares on a given file
-extern const Bitboard RankMask[8];   // all squares on a given rank
-extern const Bitboard SquareBB[64];  // single-square bitboards
+extern const Bitboard SquareBB[64];
+extern const Bitboard FileMask[8];
+extern const Bitboard RankMask[8];
 
 // ──────────────────────────────────────────
-//  Shift operations (moving pieces on the board)
+//  Wrap-around masks for directional shifts
 // ──────────────────────────────────────────
-//
-// Shifting a bitboard = moving all pieces in a direction.
-// We must mask out wrap-arounds (h-file pieces wrapping to a-file).
-//
-//  Direction encoding:
-//  N  = +8  (north, toward rank 8)
-//  S  = -8  (south, toward rank 1)
-//  E  = +1  (east, toward h-file) — mask out a-file before shifting
-//  W  = -1  (west, toward a-file) — mask out h-file before shifting
-
 constexpr Bitboard NOT_A_FILE = 0xfefefefefefefefeULL;
 constexpr Bitboard NOT_H_FILE = 0x7f7f7f7f7f7f7f7fULL;
 
+// ──────────────────────────────────────────
+//  Directional shifts
+//  N=+8, S=-8, E=+1 (mask H-file), W=-1 (mask A-file)
+// ──────────────────────────────────────────
 inline Bitboard shiftN (Bitboard b) { return b << 8; }
 inline Bitboard shiftS (Bitboard b) { return b >> 8; }
 inline Bitboard shiftE (Bitboard b) { return (b & NOT_H_FILE) << 1; }
@@ -66,6 +57,6 @@ inline Bitboard shiftSE(Bitboard b) { return (b & NOT_H_FILE) >> 7; }
 inline Bitboard shiftSW(Bitboard b) { return (b & NOT_A_FILE) >> 9; }
 
 // ──────────────────────────────────────────
-//  Debug utility
+//  Debug: print bitboard as 8x8 grid
 // ──────────────────────────────────────────
 std::string bitboardToString(Bitboard bb);

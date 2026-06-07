@@ -63,10 +63,12 @@ CMAKE_BINARY_DIR = "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knight
 
 # The main recursive "all" target.
 all: CMakeFiles/knightfall.dir/all
+all: CMakeFiles/perft.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/knightfall.dir/codegen
+codegen: CMakeFiles/perft.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -75,6 +77,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/knightfall.dir/clean
+clean: CMakeFiles/perft.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -84,12 +87,12 @@ clean: CMakeFiles/knightfall.dir/clean
 CMakeFiles/knightfall.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=1,2,3,4,5,6 "Built target knightfall"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target knightfall"
 .PHONY : CMakeFiles/knightfall.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/knightfall.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" 6
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/knightfall.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" 0
 .PHONY : CMakeFiles/knightfall.dir/rule
@@ -101,13 +104,45 @@ knightfall: CMakeFiles/knightfall.dir/rule
 # codegen rule for target.
 CMakeFiles/knightfall.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=1,2,3,4,5,6 "Finished codegen for target knightfall"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=1,2,3,4,5,6,7,8,9,10 "Finished codegen for target knightfall"
 .PHONY : CMakeFiles/knightfall.dir/codegen
 
 # clean rule for target.
 CMakeFiles/knightfall.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/clean
 .PHONY : CMakeFiles/knightfall.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/perft.dir
+
+# All Build rule for target.
+CMakeFiles/perft.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\perft.dir\build.make CMakeFiles/perft.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\perft.dir\build.make CMakeFiles/perft.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=11,12,13,14,15,16 "Built target perft"
+.PHONY : CMakeFiles/perft.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/perft.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/perft.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" 0
+.PHONY : CMakeFiles/perft.dir/rule
+
+# Convenience name for target.
+perft: CMakeFiles/perft.dir/rule
+.PHONY : perft
+
+# codegen rule for target.
+CMakeFiles/perft.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\perft.dir\build.make CMakeFiles/perft.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=11,12,13,14,15,16 "Finished codegen for target perft"
+.PHONY : CMakeFiles/perft.dir/codegen
+
+# clean rule for target.
+CMakeFiles/perft.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\perft.dir\build.make CMakeFiles/perft.dir/clean
+.PHONY : CMakeFiles/perft.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -83,4 +83,8 @@ private:
     void putPiece(Piece p, Square s);
     void removePiece(Square s);
     void movePiece(Square from, Square to);
+    // Silent variants: no Zobrist update (used by unmakeMove)
+    void putPieceSilent(Piece p, Square s);
+    void removePieceSilent(Square s);
+    void movePieceSilent(Square from, Square to);
 };
