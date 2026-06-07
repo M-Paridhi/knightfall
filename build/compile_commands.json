@@ -1,0 +1,32 @@
+[
+{
+  "directory": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/knightfall.dir/includes_CXX.rsp -g -std=gnu++14 -O3 -mpopcnt -o CMakeFiles\\knightfall.dir\\src\\main.cpp.obj -c \"C:\\Users\\paridhi mittal\\OneDrive\\Documents\\New folder\\knightfall\\src\\main.cpp\"",
+  "file": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/main.cpp",
+  "output": "CMakeFiles/knightfall.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/knightfall.dir/includes_CXX.rsp -g -std=gnu++14 -O3 -mpopcnt -o CMakeFiles\\knightfall.dir\\src\\core\\bitboard.cpp.obj -c \"C:\\Users\\paridhi mittal\\OneDrive\\Documents\\New folder\\knightfall\\src\\core\\bitboard.cpp\"",
+  "file": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/core/bitboard.cpp",
+  "output": "CMakeFiles/knightfall.dir/src/core/bitboard.cpp.obj"
+},
+{
+  "directory": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/knightfall.dir/includes_CXX.rsp -g -std=gnu++14 -O3 -mpopcnt -o CMakeFiles\\knightfall.dir\\src\\core\\board.cpp.obj -c \"C:\\Users\\paridhi mittal\\OneDrive\\Documents\\New folder\\knightfall\\src\\core\\board.cpp\"",
+  "file": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/core/board.cpp",
+  "output": "CMakeFiles/knightfall.dir/src/core/board.cpp.obj"
+},
+{
+  "directory": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/knightfall.dir/includes_CXX.rsp -g -std=gnu++14 -O3 -mpopcnt -o CMakeFiles\\knightfall.dir\\src\\core\\movegen.cpp.obj -c \"C:\\Users\\paridhi mittal\\OneDrive\\Documents\\New folder\\knightfall\\src\\core\\movegen.cpp\"",
+  "file": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/core/movegen.cpp",
+  "output": "CMakeFiles/knightfall.dir/src/core/movegen.cpp.obj"
+},
+{
+  "directory": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/knightfall.dir/includes_CXX.rsp -g -std=gnu++14 -O3 -mpopcnt -o CMakeFiles\\knightfall.dir\\src\\core\\attacks.cpp.obj -c \"C:\\Users\\paridhi mittal\\OneDrive\\Documents\\New folder\\knightfall\\src\\core\\attacks.cpp\"",
+  "file": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/core/attacks.cpp",
+  "output": "CMakeFiles/knightfall.dir/src/core/attacks.cpp.obj"
+}
+]
