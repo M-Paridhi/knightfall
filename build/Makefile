@@ -154,6 +154,19 @@ play/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/build
 .PHONY : play/fast
 
+#=============================================================================
+# Target rules for targets named visualizer
+
+# Build rule for target.
+visualizer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 visualizer
+.PHONY : visualizer
+
+# fast build rule for target.
+visualizer/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/build
+.PHONY : visualizer/fast
+
 src/core/attacks.obj: src/core/attacks.cpp.obj
 .PHONY : src/core/attacks.obj
 
@@ -162,6 +175,7 @@ src/core/attacks.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/core/attacks.cpp.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\perft.dir\build.make CMakeFiles/perft.dir/src/core/attacks.cpp.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/core/attacks.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/core/attacks.cpp.obj
 .PHONY : src/core/attacks.cpp.obj
 
 src/core/attacks.i: src/core/attacks.cpp.i
@@ -172,6 +186,7 @@ src/core/attacks.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/core/attacks.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\perft.dir\build.make CMakeFiles/perft.dir/src/core/attacks.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/core/attacks.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/core/attacks.cpp.i
 .PHONY : src/core/attacks.cpp.i
 
 src/core/attacks.s: src/core/attacks.cpp.s
@@ -182,6 +197,7 @@ src/core/attacks.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/core/attacks.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\perft.dir\build.make CMakeFiles/perft.dir/src/core/attacks.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/core/attacks.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/core/attacks.cpp.s
 .PHONY : src/core/attacks.cpp.s
 
 src/core/bitboard.obj: src/core/bitboard.cpp.obj
@@ -192,6 +208,7 @@ src/core/bitboard.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/core/bitboard.cpp.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\perft.dir\build.make CMakeFiles/perft.dir/src/core/bitboard.cpp.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/core/bitboard.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/core/bitboard.cpp.obj
 .PHONY : src/core/bitboard.cpp.obj
 
 src/core/bitboard.i: src/core/bitboard.cpp.i
@@ -202,6 +219,7 @@ src/core/bitboard.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/core/bitboard.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\perft.dir\build.make CMakeFiles/perft.dir/src/core/bitboard.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/core/bitboard.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/core/bitboard.cpp.i
 .PHONY : src/core/bitboard.cpp.i
 
 src/core/bitboard.s: src/core/bitboard.cpp.s
@@ -212,6 +230,7 @@ src/core/bitboard.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/core/bitboard.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\perft.dir\build.make CMakeFiles/perft.dir/src/core/bitboard.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/core/bitboard.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/core/bitboard.cpp.s
 .PHONY : src/core/bitboard.cpp.s
 
 src/core/board.obj: src/core/board.cpp.obj
@@ -222,6 +241,7 @@ src/core/board.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/core/board.cpp.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\perft.dir\build.make CMakeFiles/perft.dir/src/core/board.cpp.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/core/board.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/core/board.cpp.obj
 .PHONY : src/core/board.cpp.obj
 
 src/core/board.i: src/core/board.cpp.i
@@ -232,6 +252,7 @@ src/core/board.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/core/board.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\perft.dir\build.make CMakeFiles/perft.dir/src/core/board.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/core/board.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/core/board.cpp.i
 .PHONY : src/core/board.cpp.i
 
 src/core/board.s: src/core/board.cpp.s
@@ -242,6 +263,7 @@ src/core/board.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/core/board.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\perft.dir\build.make CMakeFiles/perft.dir/src/core/board.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/core/board.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/core/board.cpp.s
 .PHONY : src/core/board.cpp.s
 
 src/core/movegen.obj: src/core/movegen.cpp.obj
@@ -252,6 +274,7 @@ src/core/movegen.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/core/movegen.cpp.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\perft.dir\build.make CMakeFiles/perft.dir/src/core/movegen.cpp.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/core/movegen.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/core/movegen.cpp.obj
 .PHONY : src/core/movegen.cpp.obj
 
 src/core/movegen.i: src/core/movegen.cpp.i
@@ -262,6 +285,7 @@ src/core/movegen.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/core/movegen.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\perft.dir\build.make CMakeFiles/perft.dir/src/core/movegen.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/core/movegen.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/core/movegen.cpp.i
 .PHONY : src/core/movegen.cpp.i
 
 src/core/movegen.s: src/core/movegen.cpp.s
@@ -272,6 +296,7 @@ src/core/movegen.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/core/movegen.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\perft.dir\build.make CMakeFiles/perft.dir/src/core/movegen.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/core/movegen.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/core/movegen.cpp.s
 .PHONY : src/core/movegen.cpp.s
 
 src/main.obj: src/main.cpp.obj
@@ -322,6 +347,30 @@ src/play.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/play.cpp.s
 .PHONY : src/play.cpp.s
 
+src/protocol/server.obj: src/protocol/server.cpp.obj
+.PHONY : src/protocol/server.obj
+
+# target to build an object file
+src/protocol/server.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/protocol/server.cpp.obj
+.PHONY : src/protocol/server.cpp.obj
+
+src/protocol/server.i: src/protocol/server.cpp.i
+.PHONY : src/protocol/server.i
+
+# target to preprocess a source file
+src/protocol/server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/protocol/server.cpp.i
+.PHONY : src/protocol/server.cpp.i
+
+src/protocol/server.s: src/protocol/server.cpp.s
+.PHONY : src/protocol/server.s
+
+# target to generate assembly for a file
+src/protocol/server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/protocol/server.cpp.s
+.PHONY : src/protocol/server.cpp.s
+
 src/protocol/uci.obj: src/protocol/uci.cpp.obj
 .PHONY : src/protocol/uci.obj
 
@@ -353,6 +402,7 @@ src/search/evaluate.obj: src/search/evaluate.cpp.obj
 src/search/evaluate.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/search/evaluate.cpp.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/search/evaluate.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/search/evaluate.cpp.obj
 .PHONY : src/search/evaluate.cpp.obj
 
 src/search/evaluate.i: src/search/evaluate.cpp.i
@@ -362,6 +412,7 @@ src/search/evaluate.i: src/search/evaluate.cpp.i
 src/search/evaluate.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/search/evaluate.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/search/evaluate.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/search/evaluate.cpp.i
 .PHONY : src/search/evaluate.cpp.i
 
 src/search/evaluate.s: src/search/evaluate.cpp.s
@@ -371,6 +422,7 @@ src/search/evaluate.s: src/search/evaluate.cpp.s
 src/search/evaluate.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/search/evaluate.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/search/evaluate.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/search/evaluate.cpp.s
 .PHONY : src/search/evaluate.cpp.s
 
 src/search/search.obj: src/search/search.cpp.obj
@@ -380,6 +432,7 @@ src/search/search.obj: src/search/search.cpp.obj
 src/search/search.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/search/search.cpp.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/search/search.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/search/search.cpp.obj
 .PHONY : src/search/search.cpp.obj
 
 src/search/search.i: src/search/search.cpp.i
@@ -389,6 +442,7 @@ src/search/search.i: src/search/search.cpp.i
 src/search/search.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/search/search.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/search/search.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/search/search.cpp.i
 .PHONY : src/search/search.cpp.i
 
 src/search/search.s: src/search/search.cpp.s
@@ -398,6 +452,7 @@ src/search/search.s: src/search/search.cpp.s
 src/search/search.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/search/search.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/search/search.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/search/search.cpp.s
 .PHONY : src/search/search.cpp.s
 
 src/search/tt.obj: src/search/tt.cpp.obj
@@ -407,6 +462,7 @@ src/search/tt.obj: src/search/tt.cpp.obj
 src/search/tt.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/search/tt.cpp.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/search/tt.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/search/tt.cpp.obj
 .PHONY : src/search/tt.cpp.obj
 
 src/search/tt.i: src/search/tt.cpp.i
@@ -416,6 +472,7 @@ src/search/tt.i: src/search/tt.cpp.i
 src/search/tt.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/search/tt.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/search/tt.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/search/tt.cpp.i
 .PHONY : src/search/tt.cpp.i
 
 src/search/tt.s: src/search/tt.cpp.s
@@ -425,7 +482,32 @@ src/search/tt.s: src/search/tt.cpp.s
 src/search/tt.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\knightfall.dir\build.make CMakeFiles/knightfall.dir/src/search/tt.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/src/search/tt.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/search/tt.cpp.s
 .PHONY : src/search/tt.cpp.s
+
+src/vis_main.obj: src/vis_main.cpp.obj
+.PHONY : src/vis_main.obj
+
+# target to build an object file
+src/vis_main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/vis_main.cpp.obj
+.PHONY : src/vis_main.cpp.obj
+
+src/vis_main.i: src/vis_main.cpp.i
+.PHONY : src/vis_main.i
+
+# target to preprocess a source file
+src/vis_main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/vis_main.cpp.i
+.PHONY : src/vis_main.cpp.i
+
+src/vis_main.s: src/vis_main.cpp.s
+.PHONY : src/vis_main.s
+
+# target to generate assembly for a file
+src/vis_main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/src/vis_main.cpp.s
+.PHONY : src/vis_main.cpp.s
 
 tests/perft.obj: tests/perft.cpp.obj
 .PHONY : tests/perft.obj
@@ -462,6 +544,7 @@ help:
 	@echo ... knightfall
 	@echo ... perft
 	@echo ... play
+	@echo ... visualizer
 	@echo ... src/core/attacks.obj
 	@echo ... src/core/attacks.i
 	@echo ... src/core/attacks.s
@@ -480,6 +563,9 @@ help:
 	@echo ... src/play.obj
 	@echo ... src/play.i
 	@echo ... src/play.s
+	@echo ... src/protocol/server.obj
+	@echo ... src/protocol/server.i
+	@echo ... src/protocol/server.s
 	@echo ... src/protocol/uci.obj
 	@echo ... src/protocol/uci.i
 	@echo ... src/protocol/uci.s
@@ -492,6 +578,9 @@ help:
 	@echo ... src/search/tt.obj
 	@echo ... src/search/tt.i
 	@echo ... src/search/tt.s
+	@echo ... src/vis_main.obj
+	@echo ... src/vis_main.i
+	@echo ... src/vis_main.s
 	@echo ... tests/perft.obj
 	@echo ... tests/perft.i
 	@echo ... tests/perft.s

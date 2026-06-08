@@ -18,7 +18,8 @@
 					[
 						0,
 						1,
-						2
+						2,
+						3
 					]
 				}
 			],
@@ -35,7 +36,8 @@
 					[
 						0,
 						1,
-						2
+						2,
+						3
 					]
 				}
 			],
@@ -60,6 +62,13 @@
 					"id" : "play::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-play-Debug-e938928ffd2b69d8eefa.json",
 					"name" : "play",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "visualizer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-visualizer-Debug-21d247bf42f2da7ce73b.json",
+					"name" : "visualizer",
 					"projectIndex" : 0
 				}
 			]

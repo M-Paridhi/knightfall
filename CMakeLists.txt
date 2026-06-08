@@ -50,3 +50,16 @@ add_executable(play
     ${SEARCH_SOURCES}
 )
 target_include_directories(play PRIVATE src)
+
+# Web visualizer (requires OS networking — Winsock on Windows, POSIX on Linux)
+add_executable(visualizer
+    src/vis_main.cpp
+    src/protocol/server.cpp
+    ${CORE_SOURCES}
+    ${SEARCH_SOURCES}
+)
+target_include_directories(visualizer PRIVATE src)
+
+if(WIN32)
+    target_link_libraries(visualizer ws2_32)
+endif()

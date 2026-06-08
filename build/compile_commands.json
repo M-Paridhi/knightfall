@@ -130,5 +130,59 @@
   "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/play.dir/includes_CXX.rsp -g -std=gnu++14 -O3 -mpopcnt -Wall -o CMakeFiles\\play.dir\\src\\search\\tt.cpp.obj -c \"C:\\Users\\paridhi mittal\\OneDrive\\Documents\\New folder\\knightfall\\src\\search\\tt.cpp\"",
   "file": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/search/tt.cpp",
   "output": "CMakeFiles/play.dir/src/search/tt.cpp.obj"
+},
+{
+  "directory": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/visualizer.dir/includes_CXX.rsp -g -std=gnu++14 -O3 -mpopcnt -Wall -o CMakeFiles\\visualizer.dir\\src\\vis_main.cpp.obj -c \"C:\\Users\\paridhi mittal\\OneDrive\\Documents\\New folder\\knightfall\\src\\vis_main.cpp\"",
+  "file": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/vis_main.cpp",
+  "output": "CMakeFiles/visualizer.dir/src/vis_main.cpp.obj"
+},
+{
+  "directory": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/visualizer.dir/includes_CXX.rsp -g -std=gnu++14 -O3 -mpopcnt -Wall -o CMakeFiles\\visualizer.dir\\src\\protocol\\server.cpp.obj -c \"C:\\Users\\paridhi mittal\\OneDrive\\Documents\\New folder\\knightfall\\src\\protocol\\server.cpp\"",
+  "file": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/protocol/server.cpp",
+  "output": "CMakeFiles/visualizer.dir/src/protocol/server.cpp.obj"
+},
+{
+  "directory": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/visualizer.dir/includes_CXX.rsp -g -std=gnu++14 -O3 -mpopcnt -Wall -o CMakeFiles\\visualizer.dir\\src\\core\\bitboard.cpp.obj -c \"C:\\Users\\paridhi mittal\\OneDrive\\Documents\\New folder\\knightfall\\src\\core\\bitboard.cpp\"",
+  "file": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/core/bitboard.cpp",
+  "output": "CMakeFiles/visualizer.dir/src/core/bitboard.cpp.obj"
+},
+{
+  "directory": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/visualizer.dir/includes_CXX.rsp -g -std=gnu++14 -O3 -mpopcnt -Wall -o CMakeFiles\\visualizer.dir\\src\\core\\board.cpp.obj -c \"C:\\Users\\paridhi mittal\\OneDrive\\Documents\\New folder\\knightfall\\src\\core\\board.cpp\"",
+  "file": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/core/board.cpp",
+  "output": "CMakeFiles/visualizer.dir/src/core/board.cpp.obj"
+},
+{
+  "directory": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/visualizer.dir/includes_CXX.rsp -g -std=gnu++14 -O3 -mpopcnt -Wall -o CMakeFiles\\visualizer.dir\\src\\core\\attacks.cpp.obj -c \"C:\\Users\\paridhi mittal\\OneDrive\\Documents\\New folder\\knightfall\\src\\core\\attacks.cpp\"",
+  "file": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/core/attacks.cpp",
+  "output": "CMakeFiles/visualizer.dir/src/core/attacks.cpp.obj"
+},
+{
+  "directory": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/visualizer.dir/includes_CXX.rsp -g -std=gnu++14 -O3 -mpopcnt -Wall -o CMakeFiles\\visualizer.dir\\src\\core\\movegen.cpp.obj -c \"C:\\Users\\paridhi mittal\\OneDrive\\Documents\\New folder\\knightfall\\src\\core\\movegen.cpp\"",
+  "file": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/core/movegen.cpp",
+  "output": "CMakeFiles/visualizer.dir/src/core/movegen.cpp.obj"
+},
+{
+  "directory": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/visualizer.dir/includes_CXX.rsp -g -std=gnu++14 -O3 -mpopcnt -Wall -o CMakeFiles\\visualizer.dir\\src\\search\\evaluate.cpp.obj -c \"C:\\Users\\paridhi mittal\\OneDrive\\Documents\\New folder\\knightfall\\src\\search\\evaluate.cpp\"",
+  "file": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/search/evaluate.cpp",
+  "output": "CMakeFiles/visualizer.dir/src/search/evaluate.cpp.obj"
+},
+{
+  "directory": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/visualizer.dir/includes_CXX.rsp -g -std=gnu++14 -O3 -mpopcnt -Wall -o CMakeFiles\\visualizer.dir\\src\\search\\search.cpp.obj -c \"C:\\Users\\paridhi mittal\\OneDrive\\Documents\\New folder\\knightfall\\src\\search\\search.cpp\"",
+  "file": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/search/search.cpp",
+  "output": "CMakeFiles/visualizer.dir/src/search/search.cpp.obj"
+},
+{
+  "directory": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/visualizer.dir/includes_CXX.rsp -g -std=gnu++14 -O3 -mpopcnt -Wall -o CMakeFiles\\visualizer.dir\\src\\search\\tt.cpp.obj -c \"C:\\Users\\paridhi mittal\\OneDrive\\Documents\\New folder\\knightfall\\src\\search\\tt.cpp\"",
+  "file": "C:/Users/paridhi mittal/OneDrive/Documents/New folder/knightfall/src/search/tt.cpp",
+  "output": "CMakeFiles/visualizer.dir/src/search/tt.cpp.obj"
 }
 ]

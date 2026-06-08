@@ -65,12 +65,14 @@ CMAKE_BINARY_DIR = "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knight
 all: CMakeFiles/knightfall.dir/all
 all: CMakeFiles/perft.dir/all
 all: CMakeFiles/play.dir/all
+all: CMakeFiles/visualizer.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/knightfall.dir/codegen
 codegen: CMakeFiles/perft.dir/codegen
 codegen: CMakeFiles/play.dir/codegen
+codegen: CMakeFiles/visualizer.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -81,6 +83,7 @@ preinstall:
 clean: CMakeFiles/knightfall.dir/clean
 clean: CMakeFiles/perft.dir/clean
 clean: CMakeFiles/play.dir/clean
+clean: CMakeFiles/visualizer.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -178,6 +181,38 @@ CMakeFiles/play.dir/codegen:
 CMakeFiles/play.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\play.dir\build.make CMakeFiles/play.dir/clean
 .PHONY : CMakeFiles/play.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/visualizer.dir
+
+# All Build rule for target.
+CMakeFiles/visualizer.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=26,27,28,29,30,31,32,33,34,35 "Built target visualizer"
+.PHONY : CMakeFiles/visualizer.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/visualizer.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" 10
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/visualizer.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" 0
+.PHONY : CMakeFiles/visualizer.dir/rule
+
+# Convenience name for target.
+visualizer: CMakeFiles/visualizer.dir/rule
+.PHONY : visualizer
+
+# codegen rule for target.
+CMakeFiles/visualizer.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=26,27,28,29,30,31,32,33,34,35 "Finished codegen for target visualizer"
+.PHONY : CMakeFiles/visualizer.dir/codegen
+
+# clean rule for target.
+CMakeFiles/visualizer.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/clean
+.PHONY : CMakeFiles/visualizer.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

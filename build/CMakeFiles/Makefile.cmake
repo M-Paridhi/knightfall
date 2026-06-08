@@ -54,4 +54,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/knightfall.dir/DependInfo.cmake"
   "CMakeFiles/perft.dir/DependInfo.cmake"
   "CMakeFiles/play.dir/DependInfo.cmake"
+  "CMakeFiles/visualizer.dir/DependInfo.cmake"
   )

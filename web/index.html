@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knightfall Chess Engine</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0d1117;
+    color: #e6edf3;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  header h1 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    color: #f0c040;
+  }
+  header p { color: #8b949e; font-size: 0.9rem; margin-top: 4px; }
+
+  .layout {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* ── Board + eval bar ─────────────────── */
+  .board-section {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+  }
+
+  .eval-bar-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .eval-label { font-size: 0.75rem; color: #8b949e; }
+  .eval-bar {
+    width: 20px;
+    height: 512px;
+    background: #21262d;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #30363d;
+  }
+  .eval-fill {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #f0f0f0;
+    transition: height 0.4s ease;
+  }
+  .eval-score {
+    font-size: 0.8rem;
+    color: #8b949e;
+    font-weight: 600;
+  }
+
+  .board-wrap { position: relative; }
+  .coord-rank {
+    position: absolute;
+    left: -18px;
+    font-size: 0.7rem;
+    color: #8b949e;
+  }
+  .coord-file {
+    display: flex;
+    justify-content: space-around;
+    padding: 4px 0 0 0;
+    font-size: 0.7rem;
+    color: #8b949e;
+    width: 512px;
+  }
+
+  #board {
+    width: 512px;
+    height: 512px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    border: 2px solid #30363d;
+    border-radius: 4px;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  .sq {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.2rem;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.1s;
+  }
+  .sq.light { background: #f0d9b5; }
+  .sq.dark  { background: #b58863; }
+  .sq.selected { background: #cdd16f !important; }
+  .sq.legal    { background: rgba(0,200,100,0.4) !important; }
+  .sq.lastmove { background: #cdd16f99 !important; }
+  .sq:hover    { filter: brightness(1.1); }
+
+  .piece { pointer-events: none; line-height: 1; }
+
+  /* ── Right panel ──────────────────────── */
+  .panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 300px;
+  }
+
+  .card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .card h3 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8b949e;
+    margin-bottom: 12px;
+  }
+
+  /* Status */
+  #status {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f0c040;
+    min-height: 24px;
+  }
+
+  /* Search info */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .info-item { display: flex; flex-direction: column; gap: 2px; }
+  .info-label { font-size: 0.65rem; color: #8b949e; text-transform: uppercase; }
+  .info-value { font-size: 1.1rem; font-weight: 600; color: #58a6ff; font-variant-numeric: tabular-nums; }
+
+  /* PV line */
+  #pv {
+    font-size: 0.8rem;
+    color: #8b949e;
+    word-break: break-all;
+    min-height: 20px;
+    font-family: monospace;
+    line-height: 1.6;
+  }
+
+  /* Move history */
+  #history {
+    font-size: 0.8rem;
+    font-family: monospace;
+    color: #e6edf3;
+    max-height: 160px;
+    overflow-y: auto;
+    line-height: 2;
+  }
+  #history .move-num { color: #8b949e; }
+  #history .wmove    { color: #f0f0f0; margin-right: 8px; }
+  #history .bmove    { color: #aaa; }
+
+  /* Controls */
+  .controls { display: flex; flex-direction: column; gap: 8px; }
+
+  .btn {
+    padding: 8px 12px;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    background: #21262d;
+    color: #e6edf3;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    width: 100%;
+    text-align: center;
+  }
+  .btn:hover { background: #30363d; border-color: #8b949e; }
+  .btn.primary { background: #238636; border-color: #2ea043; }
+  .btn.primary:hover { background: #2ea043; }
+  .btn.danger  { background: #b62324; border-color: #da3633; }
+  .btn.danger:hover  { background: #da3633; }
+
+  select, input[type=range] {
+    background: #21262d;
+    color: #e6edf3;
+    border: 1px solid #30363d;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 0.85rem;
+    width: 100%;
+  }
+
+  .row { display: flex; gap: 8px; align-items: center; }
+  .row label { font-size: 0.75rem; color: #8b949e; white-space: nowrap; }
+
+  /* Connection indicator */
+  .conn-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #da3633;
+    display: inline-block;
+    margin-right: 6px;
+    transition: background 0.3s;
+  }
+  .conn-dot.on { background: #2ea043; }
+  #conn-label { font-size: 0.75rem; color: #8b949e; }
+
+  /* Thinking indicator */
+  .thinking-dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #f0c040;
+    animation: pulse 0.8s infinite alternate;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  @keyframes pulse { from { opacity: 1; } to { opacity: 0.2; } }
+
+  /* Last info line */
+  #last-info {
+    font-size: 0.7rem;
+    color: #6e7681;
+    font-family: monospace;
+    min-height: 16px;
+    word-break: break-all;
+  }
+
+  /* Game over overlay */
+  #gameover {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+  }
+  #gameover.show { display: flex; }
+  .gameover-box {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 32px 48px;
+    text-align: center;
+  }
+  .gameover-box h2 { font-size: 2rem; color: #f0c040; margin-bottom: 8px; }
+  .gameover-box p  { color: #8b949e; margin-bottom: 24px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>♞ KNIGHTFALL</h1>
+  <p>Chess Engine Visualization &mdash; Alpha-Beta Search &middot; Iterative Deepening &middot; Transposition Tables</p>
+</header>
+
+<div class="layout">
+
+  <!-- Board -->
+  <div class="board-section">
+    <div class="eval-bar-wrap">
+      <span class="eval-label">+∞</span>
+      <div class="eval-bar">
+        <div class="eval-fill" id="eval-fill" style="height:50%"></div>
+      </div>
+      <span class="eval-label">-∞</span>
+      <span class="eval-score" id="eval-score">0.00</span>
+    </div>
+    <div>
+      <div class="board-wrap">
+        <div id="board"></div>
+        <div class="coord-file" id="coord-file"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right panel -->
+  <div class="panel">
+
+    <!-- Connection & Status -->
+    <div class="card">
+      <h3>Status</h3>
+      <div style="display:flex;align-items:center;margin-bottom:8px;">
+        <span class="conn-dot" id="conn-dot"></span>
+        <span id="conn-label">Connecting...</span>
+      </div>
+      <div id="status">Waiting for engine...</div>
+      <div id="thinking-wrap" style="display:none">
+        <span style="font-size:0.8rem;color:#f0c040">Engine thinking</span>
+        <span class="thinking-dot"></span>
+      </div>
+    </div>
+
+    <!-- Search info -->
+    <div class="card">
+      <h3>Search</h3>
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Depth</span>
+          <span class="info-value" id="i-depth">—</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Score</span>
+          <span class="info-value" id="i-score">—</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Nodes</span>
+          <span class="info-value" id="i-nodes">—</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">NPS</span>
+          <span class="info-value" id="i-nps">—</span>
+        </div>
+      </div>
+      <div style="margin-top:10px;">
+        <div class="info-label" style="margin-bottom:4px;">Principal Variation</div>
+        <div id="pv">—</div>
+      </div>
+      <div style="margin-top:8px;">
+        <div id="last-info"></div>
+      </div>
+    </div>
+
+    <!-- Move history -->
+    <div class="card">
+      <h3>Move History</h3>
+      <div id="history">—</div>
+    </div>
+
+    <!-- Controls -->
+    <div class="card">
+      <h3>Controls</h3>
+      <div class="controls">
+        <div class="row">
+          <label>Play as</label>
+          <select id="side-select">
+            <option value="white">White</option>
+            <option value="black">Black</option>
+          </select>
+        </div>
+        <div class="row">
+          <label>Depth</label>
+          <input type="range" id="depth-range" min="1" max="8" value="5">
+          <span id="depth-label" style="font-size:0.85rem;min-width:20px">5</span>
+        </div>
+        <button class="btn primary" id="btn-new">New Game</button>
+        <button class="btn danger"  id="btn-undo">Undo Move</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Game over overlay -->
+<div id="gameover">
+  <div class="gameover-box">
+    <h2 id="go-title">Game Over</h2>
+    <p id="go-subtitle">—</p>
+    <button class="btn primary" onclick="newGame()">Play Again</button>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════
+//  State
+// ════════════════════════════════════════
+let ws = null;
+let board = [];          // 64 piece chars, '' = empty
+let selected = -1;       // currently selected square
+let legalTargets = [];   // legal destination squares for selected piece
+let lastMove = [-1,-1];  // last move from/to for highlighting
+let humanIsWhite = true;
+let flipped = false;     // board orientation
+let moveHistory = [];    // list of {white,black} objects
+let halfMoveCount = 0;
+let depth = 5;
+let thinking = false;
+let gameOver = false;
+
+// Piece unicode
+const PIECES = {
+  'P':'♙','N':'♘','B':'♗','R':'♖','Q':'♕','K':'♔',
+  'p':'♟','n':'♞','b':'♝','r':'♜','q':'♛','k':'♚'
+};
+
+// ════════════════════════════════════════
+//  Board rendering
+// ════════════════════════════════════════
+function buildBoard() {
+  const el = document.getElementById('board');
+  el.innerHTML = '';
+
+  // Coordinates
+  const cf = document.getElementById('coord-file');
+  cf.innerHTML = '';
+  const files = flipped ? 'hgfedcba' : 'abcdefgh';
+  for (const f of files) {
+    const s = document.createElement('span');
+    s.textContent = f;
+    cf.appendChild(s);
+  }
+
+  for (let visual = 0; visual < 64; visual++) {
+    const sq = visualToSq(visual);
+    const r = Math.floor(visual / 8);
+    const f = visual % 8;
+
+    const div = document.createElement('div');
+    div.className = 'sq ' + (((r + f) % 2 === 0) ? 'light' : 'dark');
+    div.dataset.sq = sq;
+
+    // Rank label on leftmost file
+    if (f === 0) {
+      const lbl = document.createElement('span');
+      lbl.className = 'coord-rank';
+      lbl.textContent = flipped ? (r + 1) : (8 - r);
+      div.appendChild(lbl);
+    }
+
+    // Piece
+    if (board[sq]) {
+      const p = document.createElement('span');
+      p.className = 'piece';
+      p.textContent = PIECES[board[sq]] || '';
+      div.appendChild(p);
+    }
+
+    // Highlights
+    if (sq === selected) div.classList.add('selected');
+    if (legalTargets.includes(sq)) div.classList.add('legal');
+    if (lastMove.includes(sq)) div.classList.add('lastmove');
+
+    div.addEventListener('click', () => onSquareClick(sq));
+    el.appendChild(div);
+  }
+}
+
+function visualToSq(visual) {
+  const r = Math.floor(visual / 8);
+  const f = visual % 8;
+  if (flipped) return (r * 8) + (7 - f);
+  return ((7 - r) * 8) + f;
+}
+
+function renderBoard(pieces) {
+  board = new Array(64).fill('');
+  for (const p of pieces) board[p.sq] = p.piece;
+  buildBoard();
+}
+
+// ════════════════════════════════════════
+//  Square click — move input
+// ════════════════════════════════════════
+function onSquareClick(sq) {
+  if (gameOver || thinking) return;
+
+  // Determine if it's the human's turn
+  const isHumanTurn = (humanIsWhite && board.some((p,i)=>i<64&&p&&p===p.toUpperCase()&&i>=0)) ||
+                      (!humanIsWhite && board.some((p,i)=>p&&p===p.toLowerCase()));
+  // Simpler check: just use the turn we track from server
+  if (!isHumanTurn_local) return;
+
+  const piece = board[sq];
+
+  if (selected === -1) {
+    // Select a piece of the human's color
+    if (!piece) return;
+    const isWhitePiece = piece === piece.toUpperCase();
+    if (isWhitePiece !== humanIsWhite) return;
+
+    selected = sq;
+    legalTargets = [];
+    // Ask engine for legal moves from this square
+    ws.send(JSON.stringify({type:'getmoves', sq: String(sq)}));
+    buildBoard();
+
+  } else if (sq === selected) {
+    // Deselect
+    selected = -1; legalTargets = []; buildBoard();
+
+  } else if (legalTargets.includes(sq)) {
+    // Make the move
+    const from = selected;
+    const to   = sq;
+    selected = -1; legalTargets = [];
+
+    let moveStr = sqToAlg(from) + sqToAlg(to);
+
+    // Check promotion
+    const piece = board[from];
+    if ((piece==='P'&&Math.floor(to/8)===7)||(piece==='p'&&Math.floor(to/8)===0)) {
+      moveStr += 'q'; // auto-promote to queen
+    }
+
+    ws.send(JSON.stringify({type:'move', move:moveStr, depth}));
+    thinking = true;
+    setThinking(true);
+
+  } else {
+    // Re-select
+    const isWhitePiece = piece && piece === piece.toUpperCase();
+    if (piece && isWhitePiece === humanIsWhite) {
+      selected = sq; legalTargets = [];
+      ws.send(JSON.stringify({type:'getmoves', sq: String(sq)}));
+    } else {
+      selected = -1; legalTargets = [];
+    }
+    buildBoard();
+  }
+}
+
+let isHumanTurn_local = true;
+
+function sqToAlg(sq) {
+  return String.fromCharCode('a'.charCodeAt(0) + (sq%8)) + (Math.floor(sq/8)+1);
+}
+
+// ════════════════════════════════════════
+//  Eval bar
+// ════════════════════════════════════════
+function updateEval(cp) {
+  // Convert centipawns to a 0–100 bar height
+  // Clamp to ±1000cp, then map to 0–100%
+  const clamped = Math.max(-1000, Math.min(1000, cp));
+  const pct = 50 + (clamped / 1000) * 50;  // 50% = equal
+  document.getElementById('eval-fill').style.height = pct + '%';
+  const display = Math.abs(cp) > 9000
+    ? (cp > 0 ? '+M' : '-M')
+    : (cp >= 0 ? '+' : '') + (cp/100).toFixed(2);
+  document.getElementById('eval-score').textContent = display;
+  document.getElementById('i-score').textContent = display;
+}
+
+// ════════════════════════════════════════
+//  Info parsing
+// ════════════════════════════════════════
+function parseInfoLine(line) {
+  const get = (key) => {
+    const m = line.match(new RegExp(key + '\\s+(\\S+)'));
+    return m ? m[1] : null;
+  };
+  const depth = get('depth');
+  const score = get('cp');
+  const nodes = get('nodes');
+  const nps   = get('nps');
+  const pv    = line.match(/pv\s+(.+)$/);
+
+  if (depth) document.getElementById('i-depth').textContent = depth;
+  if (score) updateEval(parseInt(score));
+  if (nodes) document.getElementById('i-nodes').textContent = fmtNum(parseInt(nodes));
+  if (nps)   document.getElementById('i-nps').textContent   = fmtNum(parseInt(nps));
+  if (pv)    document.getElementById('pv').textContent = pv[1].trim();
+  document.getElementById('last-info').textContent = line;
+}
+
+function fmtNum(n) {
+  if (n >= 1e9) return (n/1e9).toFixed(1) + 'B';
+  if (n >= 1e6) return (n/1e6).toFixed(1) + 'M';
+  if (n >= 1e3) return (n/1e3).toFixed(1) + 'K';
+  return String(n);
+}
+
+// ════════════════════════════════════════
+//  Move history
+// ════════════════════════════════════════
+function addToHistory(move, isWhite) {
+  halfMoveCount++;
+  if (isWhite) {
+    moveHistory.push({white: move, black: ''});
+  } else {
+    if (moveHistory.length > 0)
+      moveHistory[moveHistory.length-1].black = move;
+    else
+      moveHistory.push({white: '...', black: move});
+  }
+  renderHistory();
+}
+
+function renderHistory() {
+  const el = document.getElementById('history');
+  if (moveHistory.length === 0) { el.textContent = '—'; return; }
+  el.innerHTML = moveHistory.map((m,i) =>
+    `<span class="move-num">${i+1}.</span> <span class="wmove">${m.white}</span><span class="bmove">${m.black}</span> `
+  ).join('');
+  el.scrollTop = el.scrollHeight;
+}
+
+// ════════════════════════════════════════
+//  WebSocket
+// ════════════════════════════════════════
+function connect() {
+  const wsUrl = 'ws://' + location.host;
+  ws = new WebSocket(wsUrl);
+
+  ws.onopen = () => {
+    document.getElementById('conn-dot').classList.add('on');
+    document.getElementById('conn-label').textContent = 'Connected';
+    ws.send(JSON.stringify({type:'init'}));
+  };
+
+  ws.onclose = () => {
+    document.getElementById('conn-dot').classList.remove('on');
+    document.getElementById('conn-label').textContent = 'Disconnected — refresh to reconnect';
+    setTimeout(connect, 2000);
+  };
+
+  ws.onerror = () => {
+    document.getElementById('conn-label').textContent = 'Connection error';
+  };
+
+  ws.onmessage = (evt) => {
+    const msg = JSON.parse(evt.data);
+
+    if (msg.type === 'position') {
+      renderBoard(msg.pieces);
+      const whiteTurn = msg.turn === 'white';
+      isHumanTurn_local = (whiteTurn === humanIsWhite);
+      document.getElementById('status').textContent =
+        (whiteTurn ? '⬜ White' : '⬛ Black') + ' to move';
+
+    } else if (msg.type === 'settings') {
+      humanIsWhite = msg.humanIsWhite;
+      isHumanTurn_local = (humanIsWhite);  // white goes first
+      document.getElementById('side-select').value = humanIsWhite ? 'white' : 'black';
+
+    } else if (msg.type === 'info') {
+      parseInfoLine(msg.line);
+
+    } else if (msg.type === 'enginemove') {
+      thinking = false;
+      setThinking(false);
+      const mv = msg.move;
+      // Convert algebraic to square indices for highlighting
+      const fIdx = mv.charCodeAt(0)-'a'.charCodeAt(0) + (mv.charCodeAt(1)-'1')*8;
+      const tIdx = mv.charCodeAt(2)-'a'.charCodeAt(0) + (mv.charCodeAt(3)-'1')*8;
+      lastMove = [fIdx, tIdx];
+      addToHistory(mv, !humanIsWhite);
+      updateEval(msg.score);
+      isHumanTurn_local = true;
+      document.getElementById('status').textContent =
+        (humanIsWhite ? '⬜ White' : '⬛ Black') + ' to move';
+
+    } else if (msg.type === 'legalmoves') {
+      legalTargets = msg.moves;
+      buildBoard();
+
+    } else if (msg.type === 'gameover') {
+      gameOver = true;
+      thinking = false;
+      setThinking(false);
+      const titles = {checkmate:'Checkmate!', stalemate:'Stalemate!'};
+      const subs   = {
+        white: '⬜ White wins!',
+        black: '⬛ Black wins!',
+        none:  'Draw'
+      };
+      document.getElementById('go-title').textContent = titles[msg.reason] || 'Game Over';
+      document.getElementById('go-subtitle').textContent = subs[msg.winner] || '';
+      document.getElementById('gameover').classList.add('show');
+
+    } else if (msg.type === 'error') {
+      document.getElementById('status').textContent = '⚠ ' + msg.msg;
+    }
+  };
+}
+
+function setThinking(on) {
+  document.getElementById('thinking-wrap').style.display = on ? 'block' : 'none';
+  if (on)
+    document.getElementById('status').textContent = '🔍 Engine thinking...';
+}
+
+// ════════════════════════════════════════
+//  Controls
+// ════════════════════════════════════════
+function newGame() {
+  gameOver = false;
+  moveHistory = [];
+  halfMoveCount = 0;
+  lastMove = [-1,-1];
+  selected = -1;
+  legalTargets = [];
+  thinking = false;
+  setThinking(false);
+  document.getElementById('gameover').classList.remove('show');
+  document.getElementById('history').textContent = '—';
+  document.getElementById('pv').textContent = '—';
+  document.getElementById('i-depth').textContent = '—';
+  document.getElementById('i-score').textContent = '—';
+  document.getElementById('i-nodes').textContent = '—';
+  document.getElementById('i-nps').textContent = '—';
+  updateEval(0);
+
+  const side = document.getElementById('side-select').value;
+  humanIsWhite = (side === 'white');
+  isHumanTurn_local = humanIsWhite;
+
+  ws.send(JSON.stringify({type:'newgame', side, depth}));
+}
+
+document.getElementById('btn-new').onclick = newGame;
+
+document.getElementById('btn-undo').onclick = () => {
+  // Basic undo — just start a new game for now
+  // Full undo requires server-side move stack (Phase 5)
+  document.getElementById('status').textContent = 'Use New Game to reset (full undo in Phase 5)';
+};
+
+document.getElementById('depth-range').oninput = function() {
+  depth = parseInt(this.value);
+  document.getElementById('depth-label').textContent = depth;
+};
+
+// ════════════════════════════════════════
+//  Init
+// ════════════════════════════════════════
+// Build empty board while connecting
+board = new Array(64).fill('');
+buildBoard();
+connect();
+</script>
+</body>
+</html>
