@@ -27,7 +27,7 @@ set(SEARCH_SOURCES
     src/search/tt.cpp
 )
 
-# Main UCI engine
+# ── UCI engine ────────────────────────────
 add_executable(knightfall
     src/main.cpp
     src/protocol/uci.cpp
@@ -36,14 +36,14 @@ add_executable(knightfall
 )
 target_include_directories(knightfall PRIVATE src)
 
-# Perft correctness tests
+# ── Perft tests ───────────────────────────
 add_executable(perft
     tests/perft.cpp
     ${CORE_SOURCES}
 )
 target_include_directories(perft PRIVATE src)
 
-# Interactive terminal game
+# ── Terminal game ─────────────────────────
 add_executable(play
     src/play.cpp
     ${CORE_SOURCES}
@@ -51,7 +51,7 @@ add_executable(play
 )
 target_include_directories(play PRIVATE src)
 
-# Web visualizer (requires OS networking — Winsock on Windows, POSIX on Linux)
+# ── Web visualizer ────────────────────────
 add_executable(visualizer
     src/vis_main.cpp
     src/protocol/server.cpp
@@ -60,6 +60,10 @@ add_executable(visualizer
 )
 target_include_directories(visualizer PRIVATE src)
 
+# Threading: Winsock + pthreads on Windows, pthreads on Linux
 if(WIN32)
-    target_link_libraries(visualizer ws2_32)
+    target_link_libraries(knightfall   ws2_32)
+    target_link_libraries(visualizer   ws2_32 -static -lpthread)
+else()
+    target_link_libraries(visualizer   pthread)
 endif()

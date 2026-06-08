@@ -2,90 +2,108 @@ CMakeFiles/play.dir/src/search/tt.cpp.obj: \
  C:\Users\paridhi\ mittal\OneDrive\Documents\New\ folder\knightfall\src\search\tt.cpp \
  C:\Users\paridhi\ mittal\OneDrive\Documents\New\ folder\knightfall\src\search\tt.h \
  C:/Users/PARIDH~1/OneDrive/DOCUME~1/NEWFOL~1/KNIGHT~1/src/core/types.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstdint \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++config.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\os_defines.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\cpu_defines.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\stdint.h \
- c:\mingw\include\stdint.h c:\mingw\include\_mingw.h \
- c:\mingw\include\msvcrtver.h c:\mingw\include\w32api.h \
- c:\mingw\include\sdkddkver.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\stddef.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/cstdint \
+ C:/msys64/ucrt64/include/c++/16.1.0/x86_64-w64-mingw32/bits/c++config.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/x86_64-w64-mingw32/bits/os_defines.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/x86_64-w64-mingw32/bits/cpu_defines.h \
+ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/16.1.0/include/stdint.h \
+ C:/msys64/ucrt64/include/stdint.h C:/msys64/ucrt64/include/crtdefs.h \
+ C:/msys64/ucrt64/include/corecrt.h C:/msys64/ucrt64/include/_mingw.h \
+ C:/msys64/ucrt64/include/_mingw_mac.h \
+ C:/msys64/ucrt64/include/_mingw_secapi.h \
+ C:/msys64/ucrt64/include/vadefs.h \
+ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/16.1.0/include/stddef.h \
+ C:/msys64/ucrt64/include/stddef.h \
  C:/Users/PARIDH~1/OneDrive/DOCUME~1/NEWFOL~1/KNIGHT~1/src/core/move.h \
  C:\Users\paridhi\ mittal\OneDrive\Documents\New\ folder\knightfall\src\search\evaluate.h \
  C:/Users/PARIDH~1/OneDrive/DOCUME~1/NEWFOL~1/KNIGHT~1/src/core/board.h \
  C:/Users/PARIDH~1/OneDrive/DOCUME~1/NEWFOL~1/KNIGHT~1/src/core/bitboard.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cassert \
- c:\mingw\include\assert.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\string \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stringfwd.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\memoryfwd.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\char_traits.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_algobase.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\functexcept.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\exception_defines.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\cpp_type_traits.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\type_traits.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\numeric_traits.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_pair.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\move.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\concept_check.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\type_traits \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_iterator_base_types.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_iterator_base_funcs.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\debug\assertions.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_iterator.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ptr_traits.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\debug\debug.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\predefined_ops.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\postypes.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cwchar \
- c:\mingw\include\wchar.h c:\mingw\include\wctype.h \
- c:\mingw\include\sys\types.h c:\mingw\include\stdio.h \
- c:\mingw\include\sys/types.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\stdarg.h \
- c:\mingw\include\stdlib.h c:\mingw\include\direct.h \
- c:\mingw\include\sys/stat.h c:\mingw\include\io.h \
- c:\mingw\include\stdint.h c:\mingw\include\time.h \
- c:\mingw\include\locale.h c:\mingw\include\process.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\allocator.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++allocator.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\new_allocator.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\new \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\exception \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\atomic_lockfree_defines.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\exception_ptr.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\nested_exception.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\localefwd.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\c++locale.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\clocale \
- c:\mingw\include\locale.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iosfwd \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cctype \
- c:\mingw\include\ctype.h c:\mingw\include\wctype.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream_insert.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\cxxabi_forced.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_function.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\backward\binders.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\range_access.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\initializer_list \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_string.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\atomicity.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\gthr.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\gthr-default.h \
- c:\mingw\include\errno.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\mingw32\bits\atomic_word.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\alloc_traits.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\alloc_traits.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ext\string_conversions.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstdlib \
- c:\mingw\include\stdlib.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstdio \
- c:\mingw\include\stdio.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cerrno \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\functional_hash.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\hash_bytes.h \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\basic_string.tcc \
- c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cstring \
- c:\mingw\include\string.h c:\mingw\include\strings.h \
- c:\mingw\include\wchar.h
+ C:/msys64/ucrt64/include/c++/16.1.0/cassert \
+ C:/msys64/ucrt64/include/assert.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/stdlib.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/cstdlib \
+ C:/msys64/ucrt64/include/stdlib.h \
+ C:/msys64/ucrt64/include/corecrt_wstdlib.h \
+ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/16.1.0/include/limits.h \
+ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/16.1.0/include/syslimits.h \
+ C:/msys64/ucrt64/include/limits.h \
+ C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
+ C:/msys64/ucrt64/include/malloc.h \
+ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/16.1.0/include/mm_malloc.h \
+ C:/msys64/ucrt64/include/errno.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/std_abs.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/string \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/requires_hosted.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/stringfwd.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/memoryfwd.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/version.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/char_traits.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/postypes.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/cwchar \
+ C:/msys64/ucrt64/include/wchar.h \
+ C:/msys64/ucrt64/include/corecrt_stdio_config.h \
+ C:/msys64/ucrt64/include/corecrt_wconio.h \
+ C:/msys64/ucrt64/include/sec_api/wconio_s.h \
+ C:/msys64/ucrt64/include/corecrt_wctype.h \
+ C:/msys64/ucrt64/include/_mingw_off_t.h \
+ C:/msys64/ucrt64/include/_mingw_stat64.h \
+ C:/msys64/ucrt64/include/swprintf.inl \
+ C:/msys64/ucrt64/include/sec_api/wchar_s.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/type_traits \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/allocator.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/x86_64-w64-mingw32/bits/c++allocator.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/new_allocator.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/new \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/exception.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/new_except.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/exception_defines.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/new_throw.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/move.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/cpp_type_traits.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/localefwd.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/x86_64-w64-mingw32/bits/c++locale.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/clocale \
+ C:/msys64/ucrt64/include/locale.h C:/msys64/ucrt64/include/stdio.h \
+ C:/msys64/ucrt64/include/sec_api/stdio_s.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/iosfwd \
+ C:/msys64/ucrt64/include/c++/16.1.0/cctype \
+ C:/msys64/ucrt64/include/ctype.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/ostream_insert.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/cxxabi_forced.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/stl_iterator_base_funcs.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/concept_check.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/debug/assertions.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/stl_iterator_base_types.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/stl_iterator.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/ext/type_traits.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/ptr_traits.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/stl_function.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/backward/binders.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/ext/numeric_traits.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/stdexcept_throw.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/stdexcept_throwfwd.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/stl_algobase.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/stl_pair.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/utility.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/debug/debug.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/predefined_ops.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bit \
+ C:/msys64/ucrt64/include/c++/16.1.0/concepts \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/range_access.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/initializer_list \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/erase_if.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/basic_string.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/ext/alloc_traits.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/alloc_traits.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/stl_construct.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/ext/string_conversions.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/cstdio \
+ C:/msys64/ucrt64/include/c++/16.1.0/cerrno \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/charconv.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/functional_hash.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/hash_bytes.h \
+ C:/msys64/ucrt64/include/c++/16.1.0/bits/basic_string.tcc \
+ C:/msys64/ucrt64/include/c++/16.1.0/cstring \
+ C:/msys64/ucrt64/include/string.h \
+ C:/msys64/ucrt64/include/corecrt_memory.h \
+ C:/msys64/ucrt64/include/sec_api/string_s.h

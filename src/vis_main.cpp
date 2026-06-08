@@ -10,6 +10,7 @@
 #include <mutex>
 #include <atomic>
 #include <vector>
+#include <cstdio>
 
 // ══════════════════════════════════════════
 //  Helpers
@@ -39,8 +40,7 @@ static Move parseMove(const Board& board, const std::string& s) {
         if (moveType(m)==PROMOTION) {
             if (s.size()<5) { if (movePromotion(m)==QUEEN) return m; }
             else {
-                char c = s[4];
-                PieceType p = movePromotion(m);
+                char c = s[4]; PieceType p = movePromotion(m);
                 if ((p==QUEEN&&c=='q')||(p==ROOK&&c=='r')||
                     (p==BISHOP&&c=='b')||(p==KNIGHT&&c=='n')) return m;
             }
@@ -49,9 +49,7 @@ static Move parseMove(const Board& board, const std::string& s) {
     return NULL_MOVE;
 }
 
-// Build a JSON description of the current board state
 static std::string boardToJson(const Board& board) {
-    // Piece characters: White=uppercase, Black=lowercase
     const char wpc[] = "PNBRQKpnbrqk.";
     std::ostringstream oss;
     oss << "{\"type\":\"position\","
@@ -64,56 +62,70 @@ static std::string boardToJson(const Board& board) {
         if (p == NO_PIECE) continue;
         if (!first) oss << ",";
         first = false;
-        int r = s / 8, f = s % 8;
         oss << "{\"sq\":" << s
-            << ",\"file\":" << f
-            << ",\"rank\":" << r
+            << ",\"file\":" << (s%8)
+            << ",\"rank\":" << (s/8)
             << ",\"piece\":\"" << wpc[p] << "\"}";
     }
     oss << "]}";
     return oss.str();
 }
 
-// ══════════════════════════════════════════
-//  Game state (shared between threads)
-// ══════════════════════════════════════════
-static WebSocketServer  server;
-static Board            board;
-static Searcher*        searcher = nullptr;
-static std::mutex       boardMtx;
-static std::atomic<bool> engineRunning{false};
-static std::atomic<bool> engineStop{false};
-static bool             humanIsWhite = true;
+static bool sendGameOver(const Board& board, WebSocketServer& server) {
+    MoveList lst; generateMoves(board, lst);
+    if (lst.count > 0) return false;
+    Square ksq = board.kingSquare(board.sideToMove());
+    bool inCheck = isAttacked(board, ksq, ~board.sideToMove());
+    std::string reason = inCheck ? "checkmate" : "stalemate";
+    std::string winner = inCheck
+        ? (board.sideToMove()==WHITE ? "black" : "white") : "none";
+    std::ostringstream g;
+    g << "{\"type\":\"gameover\",\"reason\":\"" << reason
+      << "\",\"winner\":\"" << winner << "\"}";
+    server.send(g.str());
+    return true;
+}
 
 // ══════════════════════════════════════════
-//  Engine search (runs in its own thread)
-//  Sends "info" lines to browser while thinking
+//  Global state (shared between threads)
+// ══════════════════════════════════════════
+static WebSocketServer     server;
+static Board               board;
+static Searcher*           searcher     = nullptr;
+static bool                humanIsWhite = true;
+static int                 engineDepth  = 5;
+static std::mutex          boardMtx;
+static std::atomic<bool>   engineStop{false};
+
+// ══════════════════════════════════════════
+//  Info line relay: cout → browser
+// ══════════════════════════════════════════
+struct InfoRelay : std::streambuf {
+    std::string line;
+    void flush_line() {
+        if (line.empty()) return;
+        std::ostringstream oss;
+        oss << "{\"type\":\"info\",\"line\":\"" << line << "\"}";
+        server.send(oss.str());
+        line.clear();
+    }
+    int overflow(int c) override {
+        if (c == '\n') flush_line();
+        else           line += (char)c;
+        return c;
+    }
+};
+
+// ══════════════════════════════════════════
+//  Engine thread
 // ══════════════════════════════════════════
 static void runEngine(int depth) {
-    engineRunning = true;
-    engineStop    = false;
+    engineStop = false;
 
-    // We override cout to capture info lines and relay to browser
-    // Use a custom streambuf
-    struct CaptureBuf : std::streambuf {
-        std::string line;
-        WebSocketServer& srv;
-        explicit CaptureBuf(WebSocketServer& s) : srv(s) {}
-        int overflow(int c) override {
-            if (c == '\n') {
-                // Forward info line to browser as JSON
-                std::ostringstream oss;
-                oss << "{\"type\":\"info\",\"line\":\"" << line << "\"}";
-                srv.send(oss.str());
-                line.clear();
-            } else {
-                line += (char)c;
-            }
-            return c;
-        }
-    } cap(server);
+    server.send("{\"type\":\"thinking\",\"on\":true}");
 
-    std::streambuf* old = std::cout.rdbuf(&cap);
+    InfoRelay relay;
+    std::streambuf* old = std::cout.rdbuf(&relay);
 
     SearchLimits limits;
     limits.maxDepth = depth;
@@ -126,51 +138,35 @@ static void runEngine(int depth) {
     }
 
     std::cout.rdbuf(old);
+    relay.flush_line();
 
-    if (!engineStop && result.bestMove != NULL_MOVE) {
-        {
-            std::lock_guard<std::mutex> lk(boardMtx);
-            board.makeMove(result.bestMove);
-        }
+    server.send("{\"type\":\"thinking\",\"on\":false}");
 
-        // Tell browser the engine's move
-        std::ostringstream oss;
-        oss << "{\"type\":\"enginemove\","
-            << "\"move\":\"" << moveToStr(result.bestMove) << "\","
-            << "\"score\":" << result.score
-            << "}";
-        server.send(oss.str());
+    if (engineStop || result.bestMove == NULL_MOVE) return;
 
-        // Send updated board
+    {
         std::lock_guard<std::mutex> lk(boardMtx);
-        server.send(boardToJson(board));
-
-        // Check game over
-        MoveList lst; generateMoves(board, lst);
-        if (lst.count == 0) {
-            Square ksq = board.kingSquare(board.sideToMove());
-            bool inCheck = isAttacked(board, ksq, ~board.sideToMove());
-            std::string reason = inCheck ? "checkmate" : "stalemate";
-            std::string winner = inCheck
-                ? (board.sideToMove()==WHITE ? "black" : "white")
-                : "none";
-            std::ostringstream g;
-            g << "{\"type\":\"gameover\","
-              << "\"reason\":\"" << reason << "\","
-              << "\"winner\":\"" << winner << "\"}";
-            server.send(g.str());
-        }
+        board.makeMove(result.bestMove);
     }
 
-    engineRunning = false;
+    std::ostringstream oss;
+    oss << "{\"type\":\"enginemove\","
+        << "\"move\":\"" << moveToStr(result.bestMove) << "\","
+        << "\"score\":" << result.score << "}";
+    server.send(oss.str());
+
+    {
+        std::lock_guard<std::mutex> lk(boardMtx);
+        server.send(boardToJson(board));
+        sendGameOver(board, server);
+    }
 }
 
 // ══════════════════════════════════════════
-//  Handle messages from the browser
+//  Message handler (called from server thread)
 // ══════════════════════════════════════════
 static void onMessage(const std::string& msg) {
-    // Simple JSON field extraction — no full parser needed
-    auto getField = [&](const std::string& key) -> std::string {
+    auto getStr = [&](const std::string& key) -> std::string {
         std::string search = "\"" + key + "\":\"";
         size_t pos = msg.find(search);
         if (pos == std::string::npos) return "";
@@ -183,13 +179,12 @@ static void onMessage(const std::string& msg) {
         size_t pos = msg.find(search);
         if (pos == std::string::npos) return -1;
         pos += search.size();
-        return std::stoi(msg.substr(pos));
+        try { return std::stoi(msg.substr(pos)); } catch(...) { return -1; }
     };
 
-    std::string type = getField("type");
+    std::string type = getStr("type");
 
     if (type == "init") {
-        // Browser connected — send current position
         std::lock_guard<std::mutex> lk(boardMtx);
         server.send(boardToJson(board));
         std::ostringstream oss;
@@ -198,10 +193,15 @@ static void onMessage(const std::string& msg) {
         server.send(oss.str());
 
     } else if (type == "move") {
-        // Human made a move
-        if (engineRunning) return;
-        std::string mv = getField("move");
-        Move m = parseMove(board, mv);
+        std::string mv = getStr("move");
+        int d = getInt("depth");
+        if (d >= 1 && d <= 10) engineDepth = d;
+
+        Move m;
+        {
+            std::lock_guard<std::mutex> lk(boardMtx);
+            m = parseMove(board, mv);
+        }
         if (m == NULL_MOVE) {
             server.send("{\"type\":\"error\",\"msg\":\"Illegal move\"}");
             return;
@@ -210,54 +210,35 @@ static void onMessage(const std::string& msg) {
             std::lock_guard<std::mutex> lk(boardMtx);
             board.makeMove(m);
             server.send(boardToJson(board));
+            if (sendGameOver(board, server)) return;
         }
-
-        // Check game over after human move
-        MoveList lst; generateMoves(board, lst);
-        if (lst.count == 0) {
-            Square ksq = board.kingSquare(board.sideToMove());
-            bool inCheck = isAttacked(board, ksq, ~board.sideToMove());
-            std::string reason = inCheck ? "checkmate" : "stalemate";
-            std::string winner = inCheck
-                ? (board.sideToMove()==WHITE ? "black" : "white")
-                : "none";
-            std::ostringstream g;
-            g << "{\"type\":\"gameover\","
-              << "\"reason\":\"" << reason << "\","
-              << "\"winner\":\"" << winner << "\"}";
-            server.send(g.str());
-            return;
-        }
-
-        // Now engine plays
-        int depth = getInt("depth");
-        if (depth < 1 || depth > 10) depth = 5;
-        std::thread(runEngine, depth).detach();
+        std::thread(runEngine, engineDepth).detach();
 
     } else if (type == "newgame") {
         engineStop = true;
-        std::lock_guard<std::mutex> lk(boardMtx);
-        board.setStartingPosition();
-        searcher->clearTT();
-        humanIsWhite = getField("side") != "black";
-        server.send(boardToJson(board));
-        std::ostringstream oss;
-        oss << "{\"type\":\"settings\","
-            << "\"humanIsWhite\":" << (humanIsWhite?"true":"false") << "}";
-        server.send(oss.str());
-
-        // If human is Black, engine goes first
-        if (!humanIsWhite) {
-            int depth = getInt("depth");
-            if (depth < 1) depth = 5;
-            std::thread(runEngine, depth).detach();
+        int d = getInt("depth");
+        if (d >= 1 && d <= 10) engineDepth = d;
+        {
+            std::lock_guard<std::mutex> lk(boardMtx);
+            board.setStartingPosition();
+            searcher->clearTT();
+            humanIsWhite = (getStr("side") != "black");
+            server.send(boardToJson(board));
+            std::ostringstream oss;
+            oss << "{\"type\":\"settings\","
+                << "\"humanIsWhite\":" << (humanIsWhite?"true":"false") << "}";
+            server.send(oss.str());
         }
+        if (!humanIsWhite)
+            std::thread(runEngine, engineDepth).detach();
 
     } else if (type == "getmoves") {
-        // Browser asks for legal moves from a square
-        std::string sqStr = getField("sq");
+        std::string sqStr = getStr("sq");
         if (sqStr.empty()) return;
-        int sqIdx = std::stoi(sqStr);
+        int sqIdx = -1;
+        try { sqIdx = std::stoi(sqStr); } catch(...) { return; }
+        if (sqIdx < 0 || sqIdx >= 64) return;
+        std::lock_guard<std::mutex> lk(boardMtx);
         MoveList list; generateMoves(board, list);
         std::ostringstream oss;
         oss << "{\"type\":\"legalmoves\",\"from\":" << sqIdx << ",\"moves\":[";
@@ -283,15 +264,12 @@ int main(int argc, char* argv[]) {
     searcher = new Searcher(32);
 
     int port = 8080;
-    if (argc > 1) port = std::stoi(argv[1]);
+    if (argc > 1) { try { port = std::stoi(argv[1]); } catch(...) {} }
 
-    // Determine path to web/index.html
-    // Try a few common locations
     std::vector<std::string> candidates = {
         "web/index.html",
         "../web/index.html",
         "../../web/index.html",
-        "./index.html"
     };
     if (argc > 2) candidates.insert(candidates.begin(), argv[2]);
 
@@ -301,7 +279,12 @@ int main(int argc, char* argv[]) {
         if (f) { fclose(f); htmlPath = c; break; }
     }
     if (htmlPath.empty()) {
-        fprintf(stderr, "Cannot find web/index.html. Run from the knightfall/ directory.\n");
+        fprintf(stderr,
+            "Cannot find web/index.html.\n"
+            "Run from the knightfall/ folder:\n"
+            "  cd knightfall\n"
+            "  .\\build\\visualizer.exe\n");
+        delete searcher;
         return 1;
     }
 

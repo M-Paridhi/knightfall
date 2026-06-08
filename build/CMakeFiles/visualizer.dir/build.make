@@ -43,10 +43,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\CMake\bin\cmake.exe"
+CMAKE_COMMAND = C:\msys64\ucrt64\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
+RM = C:\msys64\ucrt64\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -76,135 +76,135 @@ CMakeFiles/visualizer.dir/src/vis_main.cpp.obj: CMakeFiles/visualizer.dir/includ
 CMakeFiles/visualizer.dir/src/vis_main.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/vis_main.cpp
 CMakeFiles/visualizer.dir/src/vis_main.cpp.obj: CMakeFiles/visualizer.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/visualizer.dir/src/vis_main.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/visualizer.dir/src/vis_main.cpp.obj -MF CMakeFiles\visualizer.dir\src\vis_main.cpp.obj.d -o CMakeFiles\visualizer.dir\src\vis_main.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\vis_main.cpp"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/visualizer.dir/src/vis_main.cpp.obj -MF CMakeFiles\visualizer.dir\src\vis_main.cpp.obj.d -o CMakeFiles\visualizer.dir\src\vis_main.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\vis_main.cpp"
 
 CMakeFiles/visualizer.dir/src/vis_main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/visualizer.dir/src/vis_main.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\vis_main.cpp" > CMakeFiles\visualizer.dir\src\vis_main.cpp.i
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\vis_main.cpp" > CMakeFiles\visualizer.dir\src\vis_main.cpp.i
 
 CMakeFiles/visualizer.dir/src/vis_main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/visualizer.dir/src/vis_main.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\vis_main.cpp" -o CMakeFiles\visualizer.dir\src\vis_main.cpp.s
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\vis_main.cpp" -o CMakeFiles\visualizer.dir\src\vis_main.cpp.s
 
 CMakeFiles/visualizer.dir/src/protocol/server.cpp.obj: CMakeFiles/visualizer.dir/flags.make
 CMakeFiles/visualizer.dir/src/protocol/server.cpp.obj: CMakeFiles/visualizer.dir/includes_CXX.rsp
 CMakeFiles/visualizer.dir/src/protocol/server.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/protocol/server.cpp
 CMakeFiles/visualizer.dir/src/protocol/server.cpp.obj: CMakeFiles/visualizer.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/visualizer.dir/src/protocol/server.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/visualizer.dir/src/protocol/server.cpp.obj -MF CMakeFiles\visualizer.dir\src\protocol\server.cpp.obj.d -o CMakeFiles\visualizer.dir\src\protocol\server.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\protocol\server.cpp"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/visualizer.dir/src/protocol/server.cpp.obj -MF CMakeFiles\visualizer.dir\src\protocol\server.cpp.obj.d -o CMakeFiles\visualizer.dir\src\protocol\server.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\protocol\server.cpp"
 
 CMakeFiles/visualizer.dir/src/protocol/server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/visualizer.dir/src/protocol/server.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\protocol\server.cpp" > CMakeFiles\visualizer.dir\src\protocol\server.cpp.i
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\protocol\server.cpp" > CMakeFiles\visualizer.dir\src\protocol\server.cpp.i
 
 CMakeFiles/visualizer.dir/src/protocol/server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/visualizer.dir/src/protocol/server.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\protocol\server.cpp" -o CMakeFiles\visualizer.dir\src\protocol\server.cpp.s
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\protocol\server.cpp" -o CMakeFiles\visualizer.dir\src\protocol\server.cpp.s
 
 CMakeFiles/visualizer.dir/src/core/bitboard.cpp.obj: CMakeFiles/visualizer.dir/flags.make
 CMakeFiles/visualizer.dir/src/core/bitboard.cpp.obj: CMakeFiles/visualizer.dir/includes_CXX.rsp
 CMakeFiles/visualizer.dir/src/core/bitboard.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/core/bitboard.cpp
 CMakeFiles/visualizer.dir/src/core/bitboard.cpp.obj: CMakeFiles/visualizer.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/visualizer.dir/src/core/bitboard.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/visualizer.dir/src/core/bitboard.cpp.obj -MF CMakeFiles\visualizer.dir\src\core\bitboard.cpp.obj.d -o CMakeFiles\visualizer.dir\src\core\bitboard.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/visualizer.dir/src/core/bitboard.cpp.obj -MF CMakeFiles\visualizer.dir\src\core\bitboard.cpp.obj.d -o CMakeFiles\visualizer.dir\src\core\bitboard.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp"
 
 CMakeFiles/visualizer.dir/src/core/bitboard.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/visualizer.dir/src/core/bitboard.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp" > CMakeFiles\visualizer.dir\src\core\bitboard.cpp.i
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp" > CMakeFiles\visualizer.dir\src\core\bitboard.cpp.i
 
 CMakeFiles/visualizer.dir/src/core/bitboard.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/visualizer.dir/src/core/bitboard.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp" -o CMakeFiles\visualizer.dir\src\core\bitboard.cpp.s
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp" -o CMakeFiles\visualizer.dir\src\core\bitboard.cpp.s
 
 CMakeFiles/visualizer.dir/src/core/board.cpp.obj: CMakeFiles/visualizer.dir/flags.make
 CMakeFiles/visualizer.dir/src/core/board.cpp.obj: CMakeFiles/visualizer.dir/includes_CXX.rsp
 CMakeFiles/visualizer.dir/src/core/board.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/core/board.cpp
 CMakeFiles/visualizer.dir/src/core/board.cpp.obj: CMakeFiles/visualizer.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/visualizer.dir/src/core/board.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/visualizer.dir/src/core/board.cpp.obj -MF CMakeFiles\visualizer.dir\src\core\board.cpp.obj.d -o CMakeFiles\visualizer.dir\src\core\board.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/visualizer.dir/src/core/board.cpp.obj -MF CMakeFiles\visualizer.dir\src\core\board.cpp.obj.d -o CMakeFiles\visualizer.dir\src\core\board.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp"
 
 CMakeFiles/visualizer.dir/src/core/board.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/visualizer.dir/src/core/board.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp" > CMakeFiles\visualizer.dir\src\core\board.cpp.i
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp" > CMakeFiles\visualizer.dir\src\core\board.cpp.i
 
 CMakeFiles/visualizer.dir/src/core/board.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/visualizer.dir/src/core/board.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp" -o CMakeFiles\visualizer.dir\src\core\board.cpp.s
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp" -o CMakeFiles\visualizer.dir\src\core\board.cpp.s
 
 CMakeFiles/visualizer.dir/src/core/attacks.cpp.obj: CMakeFiles/visualizer.dir/flags.make
 CMakeFiles/visualizer.dir/src/core/attacks.cpp.obj: CMakeFiles/visualizer.dir/includes_CXX.rsp
 CMakeFiles/visualizer.dir/src/core/attacks.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/core/attacks.cpp
 CMakeFiles/visualizer.dir/src/core/attacks.cpp.obj: CMakeFiles/visualizer.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/visualizer.dir/src/core/attacks.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/visualizer.dir/src/core/attacks.cpp.obj -MF CMakeFiles\visualizer.dir\src\core\attacks.cpp.obj.d -o CMakeFiles\visualizer.dir\src\core\attacks.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/visualizer.dir/src/core/attacks.cpp.obj -MF CMakeFiles\visualizer.dir\src\core\attacks.cpp.obj.d -o CMakeFiles\visualizer.dir\src\core\attacks.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp"
 
 CMakeFiles/visualizer.dir/src/core/attacks.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/visualizer.dir/src/core/attacks.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp" > CMakeFiles\visualizer.dir\src\core\attacks.cpp.i
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp" > CMakeFiles\visualizer.dir\src\core\attacks.cpp.i
 
 CMakeFiles/visualizer.dir/src/core/attacks.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/visualizer.dir/src/core/attacks.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp" -o CMakeFiles\visualizer.dir\src\core\attacks.cpp.s
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp" -o CMakeFiles\visualizer.dir\src\core\attacks.cpp.s
 
 CMakeFiles/visualizer.dir/src/core/movegen.cpp.obj: CMakeFiles/visualizer.dir/flags.make
 CMakeFiles/visualizer.dir/src/core/movegen.cpp.obj: CMakeFiles/visualizer.dir/includes_CXX.rsp
 CMakeFiles/visualizer.dir/src/core/movegen.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/core/movegen.cpp
 CMakeFiles/visualizer.dir/src/core/movegen.cpp.obj: CMakeFiles/visualizer.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/visualizer.dir/src/core/movegen.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/visualizer.dir/src/core/movegen.cpp.obj -MF CMakeFiles\visualizer.dir\src\core\movegen.cpp.obj.d -o CMakeFiles\visualizer.dir\src\core\movegen.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/visualizer.dir/src/core/movegen.cpp.obj -MF CMakeFiles\visualizer.dir\src\core\movegen.cpp.obj.d -o CMakeFiles\visualizer.dir\src\core\movegen.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp"
 
 CMakeFiles/visualizer.dir/src/core/movegen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/visualizer.dir/src/core/movegen.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp" > CMakeFiles\visualizer.dir\src\core\movegen.cpp.i
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp" > CMakeFiles\visualizer.dir\src\core\movegen.cpp.i
 
 CMakeFiles/visualizer.dir/src/core/movegen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/visualizer.dir/src/core/movegen.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp" -o CMakeFiles\visualizer.dir\src\core\movegen.cpp.s
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp" -o CMakeFiles\visualizer.dir\src\core\movegen.cpp.s
 
 CMakeFiles/visualizer.dir/src/search/evaluate.cpp.obj: CMakeFiles/visualizer.dir/flags.make
 CMakeFiles/visualizer.dir/src/search/evaluate.cpp.obj: CMakeFiles/visualizer.dir/includes_CXX.rsp
 CMakeFiles/visualizer.dir/src/search/evaluate.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/search/evaluate.cpp
 CMakeFiles/visualizer.dir/src/search/evaluate.cpp.obj: CMakeFiles/visualizer.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/visualizer.dir/src/search/evaluate.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/visualizer.dir/src/search/evaluate.cpp.obj -MF CMakeFiles\visualizer.dir\src\search\evaluate.cpp.obj.d -o CMakeFiles\visualizer.dir\src\search\evaluate.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\evaluate.cpp"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/visualizer.dir/src/search/evaluate.cpp.obj -MF CMakeFiles\visualizer.dir\src\search\evaluate.cpp.obj.d -o CMakeFiles\visualizer.dir\src\search\evaluate.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\evaluate.cpp"
 
 CMakeFiles/visualizer.dir/src/search/evaluate.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/visualizer.dir/src/search/evaluate.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\evaluate.cpp" > CMakeFiles\visualizer.dir\src\search\evaluate.cpp.i
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\evaluate.cpp" > CMakeFiles\visualizer.dir\src\search\evaluate.cpp.i
 
 CMakeFiles/visualizer.dir/src/search/evaluate.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/visualizer.dir/src/search/evaluate.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\evaluate.cpp" -o CMakeFiles\visualizer.dir\src\search\evaluate.cpp.s
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\evaluate.cpp" -o CMakeFiles\visualizer.dir\src\search\evaluate.cpp.s
 
 CMakeFiles/visualizer.dir/src/search/search.cpp.obj: CMakeFiles/visualizer.dir/flags.make
 CMakeFiles/visualizer.dir/src/search/search.cpp.obj: CMakeFiles/visualizer.dir/includes_CXX.rsp
 CMakeFiles/visualizer.dir/src/search/search.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/search/search.cpp
 CMakeFiles/visualizer.dir/src/search/search.cpp.obj: CMakeFiles/visualizer.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/visualizer.dir/src/search/search.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/visualizer.dir/src/search/search.cpp.obj -MF CMakeFiles\visualizer.dir\src\search\search.cpp.obj.d -o CMakeFiles\visualizer.dir\src\search\search.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\search.cpp"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/visualizer.dir/src/search/search.cpp.obj -MF CMakeFiles\visualizer.dir\src\search\search.cpp.obj.d -o CMakeFiles\visualizer.dir\src\search\search.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\search.cpp"
 
 CMakeFiles/visualizer.dir/src/search/search.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/visualizer.dir/src/search/search.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\search.cpp" > CMakeFiles\visualizer.dir\src\search\search.cpp.i
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\search.cpp" > CMakeFiles\visualizer.dir\src\search\search.cpp.i
 
 CMakeFiles/visualizer.dir/src/search/search.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/visualizer.dir/src/search/search.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\search.cpp" -o CMakeFiles\visualizer.dir\src\search\search.cpp.s
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\search.cpp" -o CMakeFiles\visualizer.dir\src\search\search.cpp.s
 
 CMakeFiles/visualizer.dir/src/search/tt.cpp.obj: CMakeFiles/visualizer.dir/flags.make
 CMakeFiles/visualizer.dir/src/search/tt.cpp.obj: CMakeFiles/visualizer.dir/includes_CXX.rsp
 CMakeFiles/visualizer.dir/src/search/tt.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/search/tt.cpp
 CMakeFiles/visualizer.dir/src/search/tt.cpp.obj: CMakeFiles/visualizer.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/visualizer.dir/src/search/tt.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/visualizer.dir/src/search/tt.cpp.obj -MF CMakeFiles\visualizer.dir\src\search\tt.cpp.obj.d -o CMakeFiles\visualizer.dir\src\search\tt.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\tt.cpp"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/visualizer.dir/src/search/tt.cpp.obj -MF CMakeFiles\visualizer.dir\src\search\tt.cpp.obj.d -o CMakeFiles\visualizer.dir\src\search\tt.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\tt.cpp"
 
 CMakeFiles/visualizer.dir/src/search/tt.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/visualizer.dir/src/search/tt.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\tt.cpp" > CMakeFiles\visualizer.dir\src\search\tt.cpp.i
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\tt.cpp" > CMakeFiles\visualizer.dir\src\search\tt.cpp.i
 
 CMakeFiles/visualizer.dir/src/search/tt.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/visualizer.dir/src/search/tt.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\tt.cpp" -o CMakeFiles\visualizer.dir\src\search\tt.cpp.s
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\tt.cpp" -o CMakeFiles\visualizer.dir\src\search\tt.cpp.s
 
 # Object files for target visualizer
 visualizer_OBJECTS = \
