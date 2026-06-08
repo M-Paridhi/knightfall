@@ -76,75 +76,75 @@ CMakeFiles/perft.dir/tests/perft.cpp.obj: CMakeFiles/perft.dir/includes_CXX.rsp
 CMakeFiles/perft.dir/tests/perft.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/tests/perft.cpp
 CMakeFiles/perft.dir/tests/perft.cpp.obj: CMakeFiles/perft.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/perft.dir/tests/perft.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/perft.dir/tests/perft.cpp.obj -MF CMakeFiles\perft.dir\tests\perft.cpp.obj.d -o CMakeFiles\perft.dir\tests\perft.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\tests\perft.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/perft.dir/tests/perft.cpp.obj -MF CMakeFiles\perft.dir\tests\perft.cpp.obj.d -o CMakeFiles\perft.dir\tests\perft.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\tests\perft.cpp"
 
 CMakeFiles/perft.dir/tests/perft.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/perft.dir/tests/perft.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\tests\perft.cpp" > CMakeFiles\perft.dir\tests\perft.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\tests\perft.cpp" > CMakeFiles\perft.dir\tests\perft.cpp.i
 
 CMakeFiles/perft.dir/tests/perft.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/perft.dir/tests/perft.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\tests\perft.cpp" -o CMakeFiles\perft.dir\tests\perft.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\tests\perft.cpp" -o CMakeFiles\perft.dir\tests\perft.cpp.s
 
 CMakeFiles/perft.dir/src/core/bitboard.cpp.obj: CMakeFiles/perft.dir/flags.make
 CMakeFiles/perft.dir/src/core/bitboard.cpp.obj: CMakeFiles/perft.dir/includes_CXX.rsp
 CMakeFiles/perft.dir/src/core/bitboard.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/core/bitboard.cpp
 CMakeFiles/perft.dir/src/core/bitboard.cpp.obj: CMakeFiles/perft.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/perft.dir/src/core/bitboard.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/perft.dir/src/core/bitboard.cpp.obj -MF CMakeFiles\perft.dir\src\core\bitboard.cpp.obj.d -o CMakeFiles\perft.dir\src\core\bitboard.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/perft.dir/src/core/bitboard.cpp.obj -MF CMakeFiles\perft.dir\src\core\bitboard.cpp.obj.d -o CMakeFiles\perft.dir\src\core\bitboard.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp"
 
 CMakeFiles/perft.dir/src/core/bitboard.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/perft.dir/src/core/bitboard.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp" > CMakeFiles\perft.dir\src\core\bitboard.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp" > CMakeFiles\perft.dir\src\core\bitboard.cpp.i
 
 CMakeFiles/perft.dir/src/core/bitboard.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/perft.dir/src/core/bitboard.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp" -o CMakeFiles\perft.dir\src\core\bitboard.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp" -o CMakeFiles\perft.dir\src\core\bitboard.cpp.s
 
 CMakeFiles/perft.dir/src/core/board.cpp.obj: CMakeFiles/perft.dir/flags.make
 CMakeFiles/perft.dir/src/core/board.cpp.obj: CMakeFiles/perft.dir/includes_CXX.rsp
 CMakeFiles/perft.dir/src/core/board.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/core/board.cpp
 CMakeFiles/perft.dir/src/core/board.cpp.obj: CMakeFiles/perft.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/perft.dir/src/core/board.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/perft.dir/src/core/board.cpp.obj -MF CMakeFiles\perft.dir\src\core\board.cpp.obj.d -o CMakeFiles\perft.dir\src\core\board.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/perft.dir/src/core/board.cpp.obj -MF CMakeFiles\perft.dir\src\core\board.cpp.obj.d -o CMakeFiles\perft.dir\src\core\board.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp"
 
 CMakeFiles/perft.dir/src/core/board.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/perft.dir/src/core/board.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp" > CMakeFiles\perft.dir\src\core\board.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp" > CMakeFiles\perft.dir\src\core\board.cpp.i
 
 CMakeFiles/perft.dir/src/core/board.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/perft.dir/src/core/board.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp" -o CMakeFiles\perft.dir\src\core\board.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp" -o CMakeFiles\perft.dir\src\core\board.cpp.s
 
 CMakeFiles/perft.dir/src/core/attacks.cpp.obj: CMakeFiles/perft.dir/flags.make
 CMakeFiles/perft.dir/src/core/attacks.cpp.obj: CMakeFiles/perft.dir/includes_CXX.rsp
 CMakeFiles/perft.dir/src/core/attacks.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/core/attacks.cpp
 CMakeFiles/perft.dir/src/core/attacks.cpp.obj: CMakeFiles/perft.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/perft.dir/src/core/attacks.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/perft.dir/src/core/attacks.cpp.obj -MF CMakeFiles\perft.dir\src\core\attacks.cpp.obj.d -o CMakeFiles\perft.dir\src\core\attacks.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/perft.dir/src/core/attacks.cpp.obj -MF CMakeFiles\perft.dir\src\core\attacks.cpp.obj.d -o CMakeFiles\perft.dir\src\core\attacks.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp"
 
 CMakeFiles/perft.dir/src/core/attacks.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/perft.dir/src/core/attacks.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp" > CMakeFiles\perft.dir\src\core\attacks.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp" > CMakeFiles\perft.dir\src\core\attacks.cpp.i
 
 CMakeFiles/perft.dir/src/core/attacks.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/perft.dir/src/core/attacks.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp" -o CMakeFiles\perft.dir\src\core\attacks.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp" -o CMakeFiles\perft.dir\src\core\attacks.cpp.s
 
 CMakeFiles/perft.dir/src/core/movegen.cpp.obj: CMakeFiles/perft.dir/flags.make
 CMakeFiles/perft.dir/src/core/movegen.cpp.obj: CMakeFiles/perft.dir/includes_CXX.rsp
 CMakeFiles/perft.dir/src/core/movegen.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/core/movegen.cpp
 CMakeFiles/perft.dir/src/core/movegen.cpp.obj: CMakeFiles/perft.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/perft.dir/src/core/movegen.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/perft.dir/src/core/movegen.cpp.obj -MF CMakeFiles\perft.dir\src\core\movegen.cpp.obj.d -o CMakeFiles\perft.dir\src\core\movegen.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/perft.dir/src/core/movegen.cpp.obj -MF CMakeFiles\perft.dir\src\core\movegen.cpp.obj.d -o CMakeFiles\perft.dir\src\core\movegen.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp"
 
 CMakeFiles/perft.dir/src/core/movegen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/perft.dir/src/core/movegen.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp" > CMakeFiles\perft.dir\src\core\movegen.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp" > CMakeFiles\perft.dir\src\core\movegen.cpp.i
 
 CMakeFiles/perft.dir/src/core/movegen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/perft.dir/src/core/movegen.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp" -o CMakeFiles\perft.dir\src\core\movegen.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp" -o CMakeFiles\perft.dir\src\core\movegen.cpp.s
 
 # Object files for target perft
 perft_OBJECTS = \

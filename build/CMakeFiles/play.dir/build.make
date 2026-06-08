@@ -76,120 +76,120 @@ CMakeFiles/play.dir/src/play.cpp.obj: CMakeFiles/play.dir/includes_CXX.rsp
 CMakeFiles/play.dir/src/play.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/play.cpp
 CMakeFiles/play.dir/src/play.cpp.obj: CMakeFiles/play.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/play.dir/src/play.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/play.dir/src/play.cpp.obj -MF CMakeFiles\play.dir\src\play.cpp.obj.d -o CMakeFiles\play.dir\src\play.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\play.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/play.dir/src/play.cpp.obj -MF CMakeFiles\play.dir\src\play.cpp.obj.d -o CMakeFiles\play.dir\src\play.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\play.cpp"
 
 CMakeFiles/play.dir/src/play.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/play.dir/src/play.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\play.cpp" > CMakeFiles\play.dir\src\play.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\play.cpp" > CMakeFiles\play.dir\src\play.cpp.i
 
 CMakeFiles/play.dir/src/play.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/play.dir/src/play.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\play.cpp" -o CMakeFiles\play.dir\src\play.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\play.cpp" -o CMakeFiles\play.dir\src\play.cpp.s
 
 CMakeFiles/play.dir/src/core/bitboard.cpp.obj: CMakeFiles/play.dir/flags.make
 CMakeFiles/play.dir/src/core/bitboard.cpp.obj: CMakeFiles/play.dir/includes_CXX.rsp
 CMakeFiles/play.dir/src/core/bitboard.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/core/bitboard.cpp
 CMakeFiles/play.dir/src/core/bitboard.cpp.obj: CMakeFiles/play.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/play.dir/src/core/bitboard.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/play.dir/src/core/bitboard.cpp.obj -MF CMakeFiles\play.dir\src\core\bitboard.cpp.obj.d -o CMakeFiles\play.dir\src\core\bitboard.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/play.dir/src/core/bitboard.cpp.obj -MF CMakeFiles\play.dir\src\core\bitboard.cpp.obj.d -o CMakeFiles\play.dir\src\core\bitboard.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp"
 
 CMakeFiles/play.dir/src/core/bitboard.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/play.dir/src/core/bitboard.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp" > CMakeFiles\play.dir\src\core\bitboard.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp" > CMakeFiles\play.dir\src\core\bitboard.cpp.i
 
 CMakeFiles/play.dir/src/core/bitboard.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/play.dir/src/core/bitboard.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp" -o CMakeFiles\play.dir\src\core\bitboard.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp" -o CMakeFiles\play.dir\src\core\bitboard.cpp.s
 
 CMakeFiles/play.dir/src/core/board.cpp.obj: CMakeFiles/play.dir/flags.make
 CMakeFiles/play.dir/src/core/board.cpp.obj: CMakeFiles/play.dir/includes_CXX.rsp
 CMakeFiles/play.dir/src/core/board.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/core/board.cpp
 CMakeFiles/play.dir/src/core/board.cpp.obj: CMakeFiles/play.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/play.dir/src/core/board.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/play.dir/src/core/board.cpp.obj -MF CMakeFiles\play.dir\src\core\board.cpp.obj.d -o CMakeFiles\play.dir\src\core\board.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/play.dir/src/core/board.cpp.obj -MF CMakeFiles\play.dir\src\core\board.cpp.obj.d -o CMakeFiles\play.dir\src\core\board.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp"
 
 CMakeFiles/play.dir/src/core/board.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/play.dir/src/core/board.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp" > CMakeFiles\play.dir\src\core\board.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp" > CMakeFiles\play.dir\src\core\board.cpp.i
 
 CMakeFiles/play.dir/src/core/board.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/play.dir/src/core/board.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp" -o CMakeFiles\play.dir\src\core\board.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp" -o CMakeFiles\play.dir\src\core\board.cpp.s
 
 CMakeFiles/play.dir/src/core/attacks.cpp.obj: CMakeFiles/play.dir/flags.make
 CMakeFiles/play.dir/src/core/attacks.cpp.obj: CMakeFiles/play.dir/includes_CXX.rsp
 CMakeFiles/play.dir/src/core/attacks.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/core/attacks.cpp
 CMakeFiles/play.dir/src/core/attacks.cpp.obj: CMakeFiles/play.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/play.dir/src/core/attacks.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/play.dir/src/core/attacks.cpp.obj -MF CMakeFiles\play.dir\src\core\attacks.cpp.obj.d -o CMakeFiles\play.dir\src\core\attacks.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/play.dir/src/core/attacks.cpp.obj -MF CMakeFiles\play.dir\src\core\attacks.cpp.obj.d -o CMakeFiles\play.dir\src\core\attacks.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp"
 
 CMakeFiles/play.dir/src/core/attacks.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/play.dir/src/core/attacks.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp" > CMakeFiles\play.dir\src\core\attacks.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp" > CMakeFiles\play.dir\src\core\attacks.cpp.i
 
 CMakeFiles/play.dir/src/core/attacks.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/play.dir/src/core/attacks.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp" -o CMakeFiles\play.dir\src\core\attacks.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp" -o CMakeFiles\play.dir\src\core\attacks.cpp.s
 
 CMakeFiles/play.dir/src/core/movegen.cpp.obj: CMakeFiles/play.dir/flags.make
 CMakeFiles/play.dir/src/core/movegen.cpp.obj: CMakeFiles/play.dir/includes_CXX.rsp
 CMakeFiles/play.dir/src/core/movegen.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/core/movegen.cpp
 CMakeFiles/play.dir/src/core/movegen.cpp.obj: CMakeFiles/play.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/play.dir/src/core/movegen.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/play.dir/src/core/movegen.cpp.obj -MF CMakeFiles\play.dir\src\core\movegen.cpp.obj.d -o CMakeFiles\play.dir\src\core\movegen.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/play.dir/src/core/movegen.cpp.obj -MF CMakeFiles\play.dir\src\core\movegen.cpp.obj.d -o CMakeFiles\play.dir\src\core\movegen.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp"
 
 CMakeFiles/play.dir/src/core/movegen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/play.dir/src/core/movegen.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp" > CMakeFiles\play.dir\src\core\movegen.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp" > CMakeFiles\play.dir\src\core\movegen.cpp.i
 
 CMakeFiles/play.dir/src/core/movegen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/play.dir/src/core/movegen.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp" -o CMakeFiles\play.dir\src\core\movegen.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp" -o CMakeFiles\play.dir\src\core\movegen.cpp.s
 
 CMakeFiles/play.dir/src/search/evaluate.cpp.obj: CMakeFiles/play.dir/flags.make
 CMakeFiles/play.dir/src/search/evaluate.cpp.obj: CMakeFiles/play.dir/includes_CXX.rsp
 CMakeFiles/play.dir/src/search/evaluate.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/search/evaluate.cpp
 CMakeFiles/play.dir/src/search/evaluate.cpp.obj: CMakeFiles/play.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/play.dir/src/search/evaluate.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/play.dir/src/search/evaluate.cpp.obj -MF CMakeFiles\play.dir\src\search\evaluate.cpp.obj.d -o CMakeFiles\play.dir\src\search\evaluate.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\evaluate.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/play.dir/src/search/evaluate.cpp.obj -MF CMakeFiles\play.dir\src\search\evaluate.cpp.obj.d -o CMakeFiles\play.dir\src\search\evaluate.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\evaluate.cpp"
 
 CMakeFiles/play.dir/src/search/evaluate.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/play.dir/src/search/evaluate.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\evaluate.cpp" > CMakeFiles\play.dir\src\search\evaluate.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\evaluate.cpp" > CMakeFiles\play.dir\src\search\evaluate.cpp.i
 
 CMakeFiles/play.dir/src/search/evaluate.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/play.dir/src/search/evaluate.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\evaluate.cpp" -o CMakeFiles\play.dir\src\search\evaluate.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\evaluate.cpp" -o CMakeFiles\play.dir\src\search\evaluate.cpp.s
 
 CMakeFiles/play.dir/src/search/search.cpp.obj: CMakeFiles/play.dir/flags.make
 CMakeFiles/play.dir/src/search/search.cpp.obj: CMakeFiles/play.dir/includes_CXX.rsp
 CMakeFiles/play.dir/src/search/search.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/search/search.cpp
 CMakeFiles/play.dir/src/search/search.cpp.obj: CMakeFiles/play.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/play.dir/src/search/search.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/play.dir/src/search/search.cpp.obj -MF CMakeFiles\play.dir\src\search\search.cpp.obj.d -o CMakeFiles\play.dir\src\search\search.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\search.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/play.dir/src/search/search.cpp.obj -MF CMakeFiles\play.dir\src\search\search.cpp.obj.d -o CMakeFiles\play.dir\src\search\search.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\search.cpp"
 
 CMakeFiles/play.dir/src/search/search.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/play.dir/src/search/search.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\search.cpp" > CMakeFiles\play.dir\src\search\search.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\search.cpp" > CMakeFiles\play.dir\src\search\search.cpp.i
 
 CMakeFiles/play.dir/src/search/search.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/play.dir/src/search/search.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\search.cpp" -o CMakeFiles\play.dir\src\search\search.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\search.cpp" -o CMakeFiles\play.dir\src\search\search.cpp.s
 
 CMakeFiles/play.dir/src/search/tt.cpp.obj: CMakeFiles/play.dir/flags.make
 CMakeFiles/play.dir/src/search/tt.cpp.obj: CMakeFiles/play.dir/includes_CXX.rsp
 CMakeFiles/play.dir/src/search/tt.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/search/tt.cpp
 CMakeFiles/play.dir/src/search/tt.cpp.obj: CMakeFiles/play.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/play.dir/src/search/tt.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/play.dir/src/search/tt.cpp.obj -MF CMakeFiles\play.dir\src\search\tt.cpp.obj.d -o CMakeFiles\play.dir\src\search\tt.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\tt.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/play.dir/src/search/tt.cpp.obj -MF CMakeFiles\play.dir\src\search\tt.cpp.obj.d -o CMakeFiles\play.dir\src\search\tt.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\tt.cpp"
 
 CMakeFiles/play.dir/src/search/tt.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/play.dir/src/search/tt.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\tt.cpp" > CMakeFiles\play.dir\src\search\tt.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\tt.cpp" > CMakeFiles\play.dir\src\search\tt.cpp.i
 
 CMakeFiles/play.dir/src/search/tt.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/play.dir/src/search/tt.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\tt.cpp" -o CMakeFiles\play.dir\src\search\tt.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\tt.cpp" -o CMakeFiles\play.dir\src\search\tt.cpp.s
 
 # Object files for target play
 play_OBJECTS = \

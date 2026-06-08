@@ -1,3 +1,3 @@
 C:\msys64\ucrt64\bin\cmake.exe -E rm -f CMakeFiles\perft.dir/objects.a
 C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\perft.dir/objects.a @CMakeFiles\perft.dir\objects1.rsp
-C:\msys64\ucrt64\bin\c++.exe -O3 -DNDEBUG -Wl,--whole-archive CMakeFiles\perft.dir/objects.a -Wl,--no-whole-archive -o perft.exe -Wl,--out-implib,libperft.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\perft.dir\linkLibs.rsp
+C:\msys64\ucrt64\bin\g++.exe -O3 -DNDEBUG -Wl,--whole-archive CMakeFiles\perft.dir/objects.a -Wl,--no-whole-archive -o perft.exe -Wl,--out-implib,libperft.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\perft.dir\linkLibs.rsp

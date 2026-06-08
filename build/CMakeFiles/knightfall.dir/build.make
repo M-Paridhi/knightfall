@@ -76,135 +76,135 @@ CMakeFiles/knightfall.dir/src/main.cpp.obj: CMakeFiles/knightfall.dir/includes_C
 CMakeFiles/knightfall.dir/src/main.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/main.cpp
 CMakeFiles/knightfall.dir/src/main.cpp.obj: CMakeFiles/knightfall.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/knightfall.dir/src/main.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knightfall.dir/src/main.cpp.obj -MF CMakeFiles\knightfall.dir\src\main.cpp.obj.d -o CMakeFiles\knightfall.dir\src\main.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\main.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knightfall.dir/src/main.cpp.obj -MF CMakeFiles\knightfall.dir\src\main.cpp.obj.d -o CMakeFiles\knightfall.dir\src\main.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\main.cpp"
 
 CMakeFiles/knightfall.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/knightfall.dir/src/main.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\main.cpp" > CMakeFiles\knightfall.dir\src\main.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\main.cpp" > CMakeFiles\knightfall.dir\src\main.cpp.i
 
 CMakeFiles/knightfall.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/knightfall.dir/src/main.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\main.cpp" -o CMakeFiles\knightfall.dir\src\main.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\main.cpp" -o CMakeFiles\knightfall.dir\src\main.cpp.s
 
 CMakeFiles/knightfall.dir/src/protocol/uci.cpp.obj: CMakeFiles/knightfall.dir/flags.make
 CMakeFiles/knightfall.dir/src/protocol/uci.cpp.obj: CMakeFiles/knightfall.dir/includes_CXX.rsp
 CMakeFiles/knightfall.dir/src/protocol/uci.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/protocol/uci.cpp
 CMakeFiles/knightfall.dir/src/protocol/uci.cpp.obj: CMakeFiles/knightfall.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/knightfall.dir/src/protocol/uci.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knightfall.dir/src/protocol/uci.cpp.obj -MF CMakeFiles\knightfall.dir\src\protocol\uci.cpp.obj.d -o CMakeFiles\knightfall.dir\src\protocol\uci.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\protocol\uci.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knightfall.dir/src/protocol/uci.cpp.obj -MF CMakeFiles\knightfall.dir\src\protocol\uci.cpp.obj.d -o CMakeFiles\knightfall.dir\src\protocol\uci.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\protocol\uci.cpp"
 
 CMakeFiles/knightfall.dir/src/protocol/uci.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/knightfall.dir/src/protocol/uci.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\protocol\uci.cpp" > CMakeFiles\knightfall.dir\src\protocol\uci.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\protocol\uci.cpp" > CMakeFiles\knightfall.dir\src\protocol\uci.cpp.i
 
 CMakeFiles/knightfall.dir/src/protocol/uci.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/knightfall.dir/src/protocol/uci.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\protocol\uci.cpp" -o CMakeFiles\knightfall.dir\src\protocol\uci.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\protocol\uci.cpp" -o CMakeFiles\knightfall.dir\src\protocol\uci.cpp.s
 
 CMakeFiles/knightfall.dir/src/core/bitboard.cpp.obj: CMakeFiles/knightfall.dir/flags.make
 CMakeFiles/knightfall.dir/src/core/bitboard.cpp.obj: CMakeFiles/knightfall.dir/includes_CXX.rsp
 CMakeFiles/knightfall.dir/src/core/bitboard.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/core/bitboard.cpp
 CMakeFiles/knightfall.dir/src/core/bitboard.cpp.obj: CMakeFiles/knightfall.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/knightfall.dir/src/core/bitboard.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knightfall.dir/src/core/bitboard.cpp.obj -MF CMakeFiles\knightfall.dir\src\core\bitboard.cpp.obj.d -o CMakeFiles\knightfall.dir\src\core\bitboard.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knightfall.dir/src/core/bitboard.cpp.obj -MF CMakeFiles\knightfall.dir\src\core\bitboard.cpp.obj.d -o CMakeFiles\knightfall.dir\src\core\bitboard.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp"
 
 CMakeFiles/knightfall.dir/src/core/bitboard.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/knightfall.dir/src/core/bitboard.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp" > CMakeFiles\knightfall.dir\src\core\bitboard.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp" > CMakeFiles\knightfall.dir\src\core\bitboard.cpp.i
 
 CMakeFiles/knightfall.dir/src/core/bitboard.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/knightfall.dir/src/core/bitboard.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp" -o CMakeFiles\knightfall.dir\src\core\bitboard.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\bitboard.cpp" -o CMakeFiles\knightfall.dir\src\core\bitboard.cpp.s
 
 CMakeFiles/knightfall.dir/src/core/board.cpp.obj: CMakeFiles/knightfall.dir/flags.make
 CMakeFiles/knightfall.dir/src/core/board.cpp.obj: CMakeFiles/knightfall.dir/includes_CXX.rsp
 CMakeFiles/knightfall.dir/src/core/board.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/core/board.cpp
 CMakeFiles/knightfall.dir/src/core/board.cpp.obj: CMakeFiles/knightfall.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/knightfall.dir/src/core/board.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knightfall.dir/src/core/board.cpp.obj -MF CMakeFiles\knightfall.dir\src\core\board.cpp.obj.d -o CMakeFiles\knightfall.dir\src\core\board.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knightfall.dir/src/core/board.cpp.obj -MF CMakeFiles\knightfall.dir\src\core\board.cpp.obj.d -o CMakeFiles\knightfall.dir\src\core\board.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp"
 
 CMakeFiles/knightfall.dir/src/core/board.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/knightfall.dir/src/core/board.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp" > CMakeFiles\knightfall.dir\src\core\board.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp" > CMakeFiles\knightfall.dir\src\core\board.cpp.i
 
 CMakeFiles/knightfall.dir/src/core/board.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/knightfall.dir/src/core/board.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp" -o CMakeFiles\knightfall.dir\src\core\board.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\board.cpp" -o CMakeFiles\knightfall.dir\src\core\board.cpp.s
 
 CMakeFiles/knightfall.dir/src/core/attacks.cpp.obj: CMakeFiles/knightfall.dir/flags.make
 CMakeFiles/knightfall.dir/src/core/attacks.cpp.obj: CMakeFiles/knightfall.dir/includes_CXX.rsp
 CMakeFiles/knightfall.dir/src/core/attacks.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/core/attacks.cpp
 CMakeFiles/knightfall.dir/src/core/attacks.cpp.obj: CMakeFiles/knightfall.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/knightfall.dir/src/core/attacks.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knightfall.dir/src/core/attacks.cpp.obj -MF CMakeFiles\knightfall.dir\src\core\attacks.cpp.obj.d -o CMakeFiles\knightfall.dir\src\core\attacks.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knightfall.dir/src/core/attacks.cpp.obj -MF CMakeFiles\knightfall.dir\src\core\attacks.cpp.obj.d -o CMakeFiles\knightfall.dir\src\core\attacks.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp"
 
 CMakeFiles/knightfall.dir/src/core/attacks.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/knightfall.dir/src/core/attacks.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp" > CMakeFiles\knightfall.dir\src\core\attacks.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp" > CMakeFiles\knightfall.dir\src\core\attacks.cpp.i
 
 CMakeFiles/knightfall.dir/src/core/attacks.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/knightfall.dir/src/core/attacks.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp" -o CMakeFiles\knightfall.dir\src\core\attacks.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\attacks.cpp" -o CMakeFiles\knightfall.dir\src\core\attacks.cpp.s
 
 CMakeFiles/knightfall.dir/src/core/movegen.cpp.obj: CMakeFiles/knightfall.dir/flags.make
 CMakeFiles/knightfall.dir/src/core/movegen.cpp.obj: CMakeFiles/knightfall.dir/includes_CXX.rsp
 CMakeFiles/knightfall.dir/src/core/movegen.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/core/movegen.cpp
 CMakeFiles/knightfall.dir/src/core/movegen.cpp.obj: CMakeFiles/knightfall.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/knightfall.dir/src/core/movegen.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knightfall.dir/src/core/movegen.cpp.obj -MF CMakeFiles\knightfall.dir\src\core\movegen.cpp.obj.d -o CMakeFiles\knightfall.dir\src\core\movegen.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knightfall.dir/src/core/movegen.cpp.obj -MF CMakeFiles\knightfall.dir\src\core\movegen.cpp.obj.d -o CMakeFiles\knightfall.dir\src\core\movegen.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp"
 
 CMakeFiles/knightfall.dir/src/core/movegen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/knightfall.dir/src/core/movegen.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp" > CMakeFiles\knightfall.dir\src\core\movegen.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp" > CMakeFiles\knightfall.dir\src\core\movegen.cpp.i
 
 CMakeFiles/knightfall.dir/src/core/movegen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/knightfall.dir/src/core/movegen.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp" -o CMakeFiles\knightfall.dir\src\core\movegen.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\core\movegen.cpp" -o CMakeFiles\knightfall.dir\src\core\movegen.cpp.s
 
 CMakeFiles/knightfall.dir/src/search/evaluate.cpp.obj: CMakeFiles/knightfall.dir/flags.make
 CMakeFiles/knightfall.dir/src/search/evaluate.cpp.obj: CMakeFiles/knightfall.dir/includes_CXX.rsp
 CMakeFiles/knightfall.dir/src/search/evaluate.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/search/evaluate.cpp
 CMakeFiles/knightfall.dir/src/search/evaluate.cpp.obj: CMakeFiles/knightfall.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/knightfall.dir/src/search/evaluate.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knightfall.dir/src/search/evaluate.cpp.obj -MF CMakeFiles\knightfall.dir\src\search\evaluate.cpp.obj.d -o CMakeFiles\knightfall.dir\src\search\evaluate.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\evaluate.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knightfall.dir/src/search/evaluate.cpp.obj -MF CMakeFiles\knightfall.dir\src\search\evaluate.cpp.obj.d -o CMakeFiles\knightfall.dir\src\search\evaluate.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\evaluate.cpp"
 
 CMakeFiles/knightfall.dir/src/search/evaluate.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/knightfall.dir/src/search/evaluate.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\evaluate.cpp" > CMakeFiles\knightfall.dir\src\search\evaluate.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\evaluate.cpp" > CMakeFiles\knightfall.dir\src\search\evaluate.cpp.i
 
 CMakeFiles/knightfall.dir/src/search/evaluate.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/knightfall.dir/src/search/evaluate.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\evaluate.cpp" -o CMakeFiles\knightfall.dir\src\search\evaluate.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\evaluate.cpp" -o CMakeFiles\knightfall.dir\src\search\evaluate.cpp.s
 
 CMakeFiles/knightfall.dir/src/search/search.cpp.obj: CMakeFiles/knightfall.dir/flags.make
 CMakeFiles/knightfall.dir/src/search/search.cpp.obj: CMakeFiles/knightfall.dir/includes_CXX.rsp
 CMakeFiles/knightfall.dir/src/search/search.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/search/search.cpp
 CMakeFiles/knightfall.dir/src/search/search.cpp.obj: CMakeFiles/knightfall.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/knightfall.dir/src/search/search.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knightfall.dir/src/search/search.cpp.obj -MF CMakeFiles\knightfall.dir\src\search\search.cpp.obj.d -o CMakeFiles\knightfall.dir\src\search\search.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\search.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knightfall.dir/src/search/search.cpp.obj -MF CMakeFiles\knightfall.dir\src\search\search.cpp.obj.d -o CMakeFiles\knightfall.dir\src\search\search.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\search.cpp"
 
 CMakeFiles/knightfall.dir/src/search/search.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/knightfall.dir/src/search/search.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\search.cpp" > CMakeFiles\knightfall.dir\src\search\search.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\search.cpp" > CMakeFiles\knightfall.dir\src\search\search.cpp.i
 
 CMakeFiles/knightfall.dir/src/search/search.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/knightfall.dir/src/search/search.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\search.cpp" -o CMakeFiles\knightfall.dir\src\search\search.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\search.cpp" -o CMakeFiles\knightfall.dir\src\search\search.cpp.s
 
 CMakeFiles/knightfall.dir/src/search/tt.cpp.obj: CMakeFiles/knightfall.dir/flags.make
 CMakeFiles/knightfall.dir/src/search/tt.cpp.obj: CMakeFiles/knightfall.dir/includes_CXX.rsp
 CMakeFiles/knightfall.dir/src/search/tt.cpp.obj: C:/Users/paridhi\ mittal/OneDrive/Documents/New\ folder/knightfall/src/search/tt.cpp
 CMakeFiles/knightfall.dir/src/search/tt.cpp.obj: CMakeFiles/knightfall.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/knightfall.dir/src/search/tt.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knightfall.dir/src/search/tt.cpp.obj -MF CMakeFiles\knightfall.dir\src\search\tt.cpp.obj.d -o CMakeFiles\knightfall.dir\src\search\tt.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\tt.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knightfall.dir/src/search/tt.cpp.obj -MF CMakeFiles\knightfall.dir\src\search\tt.cpp.obj.d -o CMakeFiles\knightfall.dir\src\search\tt.cpp.obj -c "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\tt.cpp"
 
 CMakeFiles/knightfall.dir/src/search/tt.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/knightfall.dir/src/search/tt.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\tt.cpp" > CMakeFiles\knightfall.dir\src\search\tt.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\tt.cpp" > CMakeFiles\knightfall.dir\src\search\tt.cpp.i
 
 CMakeFiles/knightfall.dir/src/search/tt.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/knightfall.dir/src/search/tt.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\tt.cpp" -o CMakeFiles\knightfall.dir\src\search\tt.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\paridhi mittal\OneDrive\Documents\New folder\knightfall\src\search\tt.cpp" -o CMakeFiles\knightfall.dir\src\search\tt.cpp.s
 
 # Object files for target knightfall
 knightfall_OBJECTS = \
