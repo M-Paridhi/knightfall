@@ -1,3 +1,0 @@
-C:\msys64\ucrt64\bin\cmake.exe -E rm -f CMakeFiles\knightfall.dir/objects.a
-C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\knightfall.dir/objects.a @CMakeFiles\knightfall.dir\objects1.rsp
-C:\msys64\ucrt64\bin\g++.exe -O3 -DNDEBUG -Wl,--whole-archive CMakeFiles\knightfall.dir/objects.a -Wl,--no-whole-archive -o knightfall.exe -Wl,--out-implib,libknightfall.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\knightfall.dir\linkLibs.rsp
