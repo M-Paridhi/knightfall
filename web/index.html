@@ -612,7 +612,8 @@ function renderHistory() {
 //  WebSocket
 // ════════════════════════════════════════
 function connect() {
-  const wsUrl = 'ws://' + location.host;
+  // Use 127.0.0.1 explicitly — 'localhost' on Windows often resolves to IPv6
+  const wsUrl = 'ws://127.0.0.1:' + (location.port || '8080');
   ws = new WebSocket(wsUrl);
 
   ws.onopen = () => {
@@ -623,8 +624,8 @@ function connect() {
 
   ws.onclose = () => {
     document.getElementById('conn-dot').classList.remove('on');
-    document.getElementById('conn-label').textContent = 'Disconnected — refresh to reconnect';
-    setTimeout(connect, 2000);
+    document.getElementById('conn-label').textContent = 'Reconnecting...';
+    setTimeout(connect, 1500);
   };
 
   ws.onerror = () => {
