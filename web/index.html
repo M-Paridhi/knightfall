@@ -403,6 +403,27 @@
       </div>
     </div>
 
+    <!-- Controls -->
+    <div class="card">
+      <h3>Controls</h3>
+      <div class="controls">
+        <div class="row">
+          <label>Play as</label>
+          <select id="side-select">
+            <option value="white">White</option>
+            <option value="black">Black</option>
+          </select>
+        </div>
+        <div class="row">
+          <label>Depth</label>
+          <input type="range" id="depth-range" min="1" max="8" value="5">
+          <span id="depth-label" style="font-size:0.85rem;min-width:20px;color:var(--gold);font-weight:700">5</span>
+        </div>
+        <button class="btn primary" id="btn-new">New Game</button>
+        <button class="btn danger"  id="btn-undo">Undo Move</button>
+      </div>
+    </div>
+
     <!-- Search info -->
     <div class="card">
       <h3>Search</h3>
@@ -431,35 +452,11 @@
       <div id="last-info"></div>
     </div>
 
-    <!-- Move history -->
-    <div class="card">
-      <h3>Move History</h3>
-      <div id="history"><span style="color:var(--muted);font-size:0.8rem">No moves yet</span></div>
-    </div>
-
-    <!-- Controls -->
-    <div class="card">
-      <h3>Controls</h3>
-      <div class="controls">
-        <div class="row">
-          <label>Play as</label>
-          <select id="side-select">
-            <option value="white">White</option>
-            <option value="black">Black</option>
-          </select>
-        </div>
-        <div class="row">
-          <label>Depth</label>
-          <input type="range" id="depth-range" min="1" max="8" value="5">
-          <span id="depth-label" style="font-size:0.85rem;min-width:20px;color:var(--gold);font-weight:700">5</span>
-        </div>
-        <button class="btn primary" id="btn-new">New Game</button>
-        <button class="btn danger"  id="btn-undo">Undo Move</button>
-      </div>
-    </div>
-
   </div>
 </div>
+
+<!-- Hidden history container — keeps JS working, not shown in UI -->
+<div id="history" style="display:none"></div>
 
 <!-- Game over overlay -->
 <div id="gameover">
@@ -541,15 +538,15 @@ function animateMove(fromSq, toSq, pieceChar, colorClass, callback) {
 function sqToVisual(sq) {
   const rank = Math.floor(sq / 8);
   const file = sq % 8;
-  if (flipped) return (7 - rank) * 8 + (7 - file);
-  return (7 - rank) * 8 + file;
+  if (flipped) return rank * 8 + (7 - file);  // Black perspective: rank 1 at top, file h on left
+  return (7 - rank) * 8 + file;               // White perspective: rank 8 at top, file a on left
 }
 
 function visualToSq(visual) {
   const r = Math.floor(visual / 8);
   const f = visual % 8;
-  if (flipped) return ((7 - r) * 8) + (7 - f);
-  return ((7 - r) * 8) + f;
+  if (flipped) return r * 8 + (7 - f);
+  return (7 - r) * 8 + f;
 }
 
 function isWhitePieceChar(c) { return c && c === c.toUpperCase(); }
@@ -818,7 +815,9 @@ function connect() {
     } else if (msg.type === 'settings') {
       humanIsWhite = msg.humanIsWhite;
       isHumanTurn_local = humanIsWhite;
+      flipped = !humanIsWhite;
       document.getElementById('side-select').value = humanIsWhite ? 'white' : 'black';
+      buildBoard();
 
     } else if (msg.type === 'info') {
       parseInfoLine(msg.line);
@@ -858,6 +857,16 @@ function connect() {
     } else if (msg.type === 'legalmoves') {
       legalTargets = msg.moves;
       buildBoard();
+
+    } else if (msg.type === 'history') {
+      // Server sends the full game log — rebuild moveHistory from scratch.
+      // Each entry: {uci, color} where color='w' or 'b'
+      humanIsWhite = msg.humanIsWhite;
+      moveHistory = [];
+      for (const hm of msg.moves) {
+        const isWhiteMove = (hm.color === 'w');
+        addToHistory(hm.uci, isWhiteMove);
+      }
 
     } else if (msg.type === 'undo') {
       searchGen++;             // invalidate any in-flight engine response
@@ -916,11 +925,18 @@ function newGame() {
   const side = document.getElementById('side-select').value;
   humanIsWhite = (side === 'white');
   isHumanTurn_local = humanIsWhite;
+  flipped = !humanIsWhite;   // flip board when playing as Black
 
   ws.send(JSON.stringify({type:'newgame', side, depth}));
 }
 
 document.getElementById('btn-new').onclick = newGame;
+
+document.getElementById('side-select').onchange = function() {
+  // Flip the board immediately when the user changes side — no need to start a new game yet
+  flipped = (this.value === 'black');
+  buildBoard();
+};
 
 document.getElementById('btn-undo').onclick = () => {
   if (thinking) return; // don't undo while engine is thinking

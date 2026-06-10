@@ -87,7 +87,7 @@ static bool sendGameOver(const Board& board, WebSocketServer& server) {
 }
 
 // ══════════════════════════════════════════
-//  Global state (shared between threads)
+//  Global state
 // ══════════════════════════════════════════
 static WebSocketServer     server;
 static Board               board;
@@ -97,13 +97,31 @@ static int                 engineDepth  = 5;
 static std::mutex          boardMtx;
 static std::atomic<bool>   engineStop{false};
 
-// Move stack for undo — stores pairs of (humanMove, engineMove)
-// Each entry is a pair; engine move may be NULL_MOVE if game not yet responded
+// Each half-move: the UCI string + whose color played it ('w' or 'b')
+struct HalfMove { std::string uci; char color; };  // color: 'w' or 'b'
+static std::vector<HalfMove> gameLog;   // full game history, all half-moves in order
+
+// Move stack for undo
 struct MovePair { Move human; Move engine; };
 static std::vector<MovePair> moveStack;
 
+// Send the full game log as a history message
+static void sendHistory() {
+    std::ostringstream oss;
+    oss << "{\"type\":\"history\",\"humanIsWhite\":"
+        << (humanIsWhite ? "true" : "false")
+        << ",\"moves\":[";
+    for (size_t i = 0; i < gameLog.size(); ++i) {
+        if (i) oss << ",";
+        oss << "{\"uci\":\"" << gameLog[i].uci
+            << "\",\"color\":\"" << gameLog[i].color << "\"}";
+    }
+    oss << "]}";
+    server.send(oss.str());
+}
+
 // ══════════════════════════════════════════
-//  Info line relay: cout → browser
+//  Info line relay
 // ══════════════════════════════════════════
 struct InfoRelay : std::streambuf {
     std::string line;
@@ -126,7 +144,6 @@ struct InfoRelay : std::streambuf {
 // ══════════════════════════════════════════
 static void runEngine(int depth) {
     engineStop = false;
-
     server.send("{\"type\":\"thinking\",\"on\":true}");
 
     InfoRelay relay;
@@ -144,17 +161,19 @@ static void runEngine(int depth) {
 
     std::cout.rdbuf(old);
     relay.flush_line();
-
     server.send("{\"type\":\"thinking\",\"on\":false}");
 
     if (engineStop || result.bestMove == NULL_MOVE) return;
 
+    char engineColor;
     {
         std::lock_guard<std::mutex> lk(boardMtx);
+        // Color before making the move
+        engineColor = (board.sideToMove() == WHITE) ? 'w' : 'b';
         board.makeMove(result.bestMove);
-        // Record engine's move into last stack entry
         if (!moveStack.empty())
             moveStack.back().engine = result.bestMove;
+        gameLog.push_back({moveToStr(result.bestMove), engineColor});
     }
 
     std::ostringstream oss;
@@ -171,7 +190,7 @@ static void runEngine(int depth) {
 }
 
 // ══════════════════════════════════════════
-//  Message handler (called from server thread)
+//  Message handler
 // ══════════════════════════════════════════
 static void onMessage(const std::string& msg) {
     auto getStr = [&](const std::string& key) -> std::string {
@@ -199,6 +218,8 @@ static void onMessage(const std::string& msg) {
         oss << "{\"type\":\"settings\","
             << "\"humanIsWhite\":" << (humanIsWhite?"true":"false") << "}";
         server.send(oss.str());
+        // Send full game log so frontend can reconstruct history on reconnect
+        sendHistory();
 
     } else if (type == "move") {
         std::string mv = getStr("move");
@@ -216,16 +237,16 @@ static void onMessage(const std::string& msg) {
         }
         {
             std::lock_guard<std::mutex> lk(boardMtx);
+            char humanColor = (board.sideToMove() == WHITE) ? 'w' : 'b';
             board.makeMove(m);
-            // Push onto move stack; engine move filled in later
             moveStack.push_back({m, NULL_MOVE});
+            gameLog.push_back({moveToStr(m), humanColor});
             server.send(boardToJson(board));
             if (sendGameOver(board, server)) return;
         }
         std::thread(runEngine, engineDepth).detach();
 
     } else if (type == "undo") {
-        // Stop any running engine search
         engineStop = true;
 
         std::lock_guard<std::mutex> lk(boardMtx);
@@ -238,20 +259,20 @@ static void onMessage(const std::string& msg) {
         moveStack.pop_back();
 
         // Unmake engine move first (if it was made)
-        if (pair.engine != NULL_MOVE)
+        if (pair.engine != NULL_MOVE) {
             board.unmakeMove(pair.engine);
-
+            if (!gameLog.empty()) gameLog.pop_back();
+        }
         // Unmake human move
         board.unmakeMove(pair.human);
+        if (!gameLog.empty()) gameLog.pop_back();
 
-        // Tell frontend how many half-moves to pop
         int halfMovesToPop = (pair.engine != NULL_MOVE) ? 2 : 1;
         std::ostringstream oss;
         oss << "{\"type\":\"undo\",\"halfmoves\":" << halfMovesToPop << "}";
         server.send(oss.str());
         server.send(boardToJson(board));
 
-        // Restore human turn
         std::ostringstream st;
         st << "{\"type\":\"settings\","
            << "\"humanIsWhite\":" << (humanIsWhite?"true":"false") << "}";
@@ -266,12 +287,14 @@ static void onMessage(const std::string& msg) {
             board.setStartingPosition();
             searcher->clearTT();
             moveStack.clear();
+            gameLog.clear();
             humanIsWhite = (getStr("side") != "black");
             server.send(boardToJson(board));
             std::ostringstream oss;
             oss << "{\"type\":\"settings\","
                 << "\"humanIsWhite\":" << (humanIsWhite?"true":"false") << "}";
             server.send(oss.str());
+            sendHistory();  // send empty history to clear frontend
         }
         if (!humanIsWhite)
             std::thread(runEngine, engineDepth).detach();
@@ -311,9 +334,7 @@ int main(int argc, char* argv[]) {
     if (argc > 1) { try { port = std::stoi(argv[1]); } catch(...) {} }
 
     std::vector<std::string> candidates = {
-        "web/index.html",
-        "../web/index.html",
-        "../../web/index.html",
+        "web/index.html", "../web/index.html", "../../web/index.html",
     };
     if (argc > 2) candidates.insert(candidates.begin(), argv[2]);
 
