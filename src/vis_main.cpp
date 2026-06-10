@@ -97,6 +97,11 @@ static int                 engineDepth  = 5;
 static std::mutex          boardMtx;
 static std::atomic<bool>   engineStop{false};
 
+// Move stack for undo — stores pairs of (humanMove, engineMove)
+// Each entry is a pair; engine move may be NULL_MOVE if game not yet responded
+struct MovePair { Move human; Move engine; };
+static std::vector<MovePair> moveStack;
+
 // ══════════════════════════════════════════
 //  Info line relay: cout → browser
 // ══════════════════════════════════════════
@@ -147,6 +152,9 @@ static void runEngine(int depth) {
     {
         std::lock_guard<std::mutex> lk(boardMtx);
         board.makeMove(result.bestMove);
+        // Record engine's move into last stack entry
+        if (!moveStack.empty())
+            moveStack.back().engine = result.bestMove;
     }
 
     std::ostringstream oss;
@@ -209,10 +217,45 @@ static void onMessage(const std::string& msg) {
         {
             std::lock_guard<std::mutex> lk(boardMtx);
             board.makeMove(m);
+            // Push onto move stack; engine move filled in later
+            moveStack.push_back({m, NULL_MOVE});
             server.send(boardToJson(board));
             if (sendGameOver(board, server)) return;
         }
         std::thread(runEngine, engineDepth).detach();
+
+    } else if (type == "undo") {
+        // Stop any running engine search
+        engineStop = true;
+
+        std::lock_guard<std::mutex> lk(boardMtx);
+        if (moveStack.empty()) {
+            server.send("{\"type\":\"error\",\"msg\":\"Nothing to undo\"}");
+            return;
+        }
+
+        MovePair pair = moveStack.back();
+        moveStack.pop_back();
+
+        // Unmake engine move first (if it was made)
+        if (pair.engine != NULL_MOVE)
+            board.unmakeMove(pair.engine);
+
+        // Unmake human move
+        board.unmakeMove(pair.human);
+
+        // Tell frontend how many half-moves to pop
+        int halfMovesToPop = (pair.engine != NULL_MOVE) ? 2 : 1;
+        std::ostringstream oss;
+        oss << "{\"type\":\"undo\",\"halfmoves\":" << halfMovesToPop << "}";
+        server.send(oss.str());
+        server.send(boardToJson(board));
+
+        // Restore human turn
+        std::ostringstream st;
+        st << "{\"type\":\"settings\","
+           << "\"humanIsWhite\":" << (humanIsWhite?"true":"false") << "}";
+        server.send(st.str());
 
     } else if (type == "newgame") {
         engineStop = true;
@@ -222,6 +265,7 @@ static void onMessage(const std::string& msg) {
             std::lock_guard<std::mutex> lk(boardMtx);
             board.setStartingPosition();
             searcher->clearTT();
+            moveStack.clear();
             humanIsWhite = (getStr("side") != "black");
             server.send(boardToJson(board));
             std::ostringstream oss;
