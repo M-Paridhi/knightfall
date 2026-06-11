@@ -3,468 +3,820 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Knightfall Chess Engine</title>
+<title>Knightfall — Chess Engine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --sq: 70px;           /* one square size — change here to rescale board */
-    --board: calc(var(--sq) * 8);
-    --light: #f0d9b5;
-    --dark:  #b58863;
-    --bg:    #0d1117;
-    --panel: #161b22;
-    --border:#30363d;
-    --text:  #e6edf3;
-    --muted: #8b949e;
-    --gold:  #f0c040;
-    --blue:  #58a6ff;
-    --green: #2ea043;
-  }
+:root {
+  --sq: 68px;
+  --board: calc(var(--sq) * 8);
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
+  --bg:       #F7F7F5;
+  --surface:  #FFFFFF;
+  --navy:     #1F3A5F;
+  --slate:    #64748B;
+  --border:   #E5E7EB;
+  --text:     #222222;
+  --text-2:   #64748B;
+  --text-3:   #94A3B8;
+  --accent:   #1F3A5F;
+  --danger:   #991B1B;
+  --danger-bg:#FEF2F2;
+  --success:  #166534;
 
-  header { text-align: center; margin-bottom: 20px; }
-  header h1 { font-size: 2rem; letter-spacing: 3px; color: var(--gold); }
-  header p  { color: var(--muted); font-size: 0.85rem; margin-top: 4px; }
+  --light-sq: #F0D9B5;
+  --dark-sq:  #B58863;
+  --sel-sq:   #7FC97F;
+  --last-sq:  #CDD16F;
 
-  .layout {
-    display: flex;
-    gap: 24px;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+  --font: 'IBM Plex Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'Consolas', monospace;
+}
 
-  /* ── Board + eval bar ───────────────────── */
-  .board-section {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-  }
+html, body { height: 100%; }
 
-  /* Eval bar */
-  .eval-bar-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    padding-top: 2px;
-  }
-  .eval-label { font-size: 0.7rem; color: var(--muted); }
-  .eval-bar {
-    width: 24px;
-    height: var(--board);
-    background: #1a1a2e;
-    border-radius: 4px;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid var(--border);
-  }
-  /* Black side fills from top */
-  .eval-fill-black {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    background: #1c1c1c;
-    transition: height 0.5s cubic-bezier(0.4,0,0.2,1);
-  }
-  /* White side fills from bottom */
-  .eval-fill-white {
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 100%;
-    background: #f0f0f0;
-    transition: height 0.5s cubic-bezier(0.4,0,0.2,1);
-  }
-  .eval-score {
-    font-size: 0.75rem; color: var(--muted); font-weight: 600;
-    font-variant-numeric: tabular-nums;
-  }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-  /* Board wrapper — fixed pixel size for consistent squares */
-  .board-wrap {
-    position: relative;
-  }
+/* ── Topbar ──────────────────────────────── */
+.topbar {
+  height: 48px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 0;
+  flex-shrink: 0;
+}
 
-  .coord-file {
-    display: flex;
-    width: var(--board);
-    padding: 3px 0 0;
-    font-size: 0.65rem;
-    color: var(--muted);
-  }
-  .coord-file span { flex: 1; text-align: center; }
+.topbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: auto;
+  text-decoration: none;
+}
+.topbar-logo .logo-mark {
+  width: 28px; height: 28px;
+  background: var(--navy);
+  border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 16px; font-weight: 600; line-height: 1;
+  flex-shrink: 0;
+}
+.topbar-logo .logo-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+.topbar-logo .logo-sub {
+  font-size: 11px;
+  color: var(--text-2);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin-left: 2px;
+}
 
-  #board {
-    width: var(--board);
-    height: var(--board);
-    display: grid;
-    grid-template-columns: repeat(8, var(--sq));
-    grid-template-rows: repeat(8, var(--sq));
-    border: 2px solid var(--border);
-    border-radius: 3px;
-    overflow: hidden;
-    user-select: none;
-    position: relative; /* for flying piece */
-  }
+.topbar-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-2);
+  padding: 0 16px;
+  border-right: 1px solid var(--border);
+  height: 100%;
+}
+.status-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #DC2626;
+  flex-shrink: 0;
+  transition: background 0.3s;
+}
+.status-dot.on { background: #16A34A; }
 
-  .sq {
-    width: var(--sq);
-    height: var(--sq);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    position: relative;
-  }
-  .sq.light { background: var(--light); }
-  .sq.dark  { background: var(--dark);  }
-  .sq.selected  { background: #cdd16f !important; }
-  .sq.legal     { background: rgba(0,200,100,0.35) !important; }
-  .sq.lastmove  { background: rgba(205,209,111,0.6) !important; }
-  .sq:hover     { filter: brightness(1.08); }
+.topbar-turn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-2);
+  padding: 0 16px;
+  border-right: 1px solid var(--border);
+  height: 100%;
+  min-width: 140px;
+}
+.turn-swatch {
+  width: 13px; height: 13px;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  background: #fff;
+  flex-shrink: 0;
+}
+.turn-swatch.black-turn { background: #222; border-color: #555; }
 
-  /* Legal move dot on empty squares */
-  .sq.legal:not(.has-piece)::after {
-    content: '';
-    width: 30%;
-    height: 30%;
-    border-radius: 50%;
-    background: rgba(0,160,80,0.55);
-    pointer-events: none;
-  }
-  /* Legal capture ring on occupied squares */
-  .sq.legal.has-piece::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 0;
-    box-shadow: inset 0 0 0 5px rgba(0,160,80,0.6);
-    pointer-events: none;
-  }
+#topbar-status-text {
+  font-weight: 500;
+  color: var(--text);
+}
 
-  /* ── Piece glyphs ───────────────────────── */
-  .piece {
-    pointer-events: none;
-    line-height: 1;
-    font-size: calc(var(--sq) * 0.76);
-    display: block;
-    position: relative;
-    z-index: 1;
-  }
-  /* White pieces: white fill, dark border for contrast */
-  .piece.white {
-    color: #ffffff;
-    text-shadow:
-      0 0 2px #1a1005,
-      1px 1px 0 #5a3a00,
-      -1px -1px 0 #5a3a00,
-      1px -1px 0 #5a3a00,
-      -1px 1px 0 #5a3a00,
-      0 2px 4px rgba(0,0,0,0.6);
-  }
-  /* Black pieces: rich dark fill, light border for contrast */
-  .piece.black {
-    color: #1a1005;
-    text-shadow:
-      0 0 1px #d4a843,
-      1px 1px 0 #8a6520,
-      -1px -1px 0 #8a6520,
-      1px -1px 0 #8a6520,
-      -1px 1px 0 #8a6520,
-      0 2px 4px rgba(0,0,0,0.5);
-  }
+.topbar-thinking {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--slate);
+  padding: 0 16px;
+  border-right: 1px solid var(--border);
+  height: 100%;
+  font-style: italic;
+}
+.topbar-thinking.on { display: flex; }
+.think-bar {
+  width: 60px; height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+.think-bar::after {
+  content: '';
+  position: absolute;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: var(--navy);
+  border-radius: 2px;
+  animation: slide 1.2s ease-in-out infinite;
+}
+@keyframes slide { 0%{left:-40%} 100%{left:100%} }
 
-  /* ── Flying piece animation ─────────────── */
-  #flying-piece {
-    position: fixed;    /* fixed so it isn't clipped by board overflow:hidden */
-    pointer-events: none;
-    z-index: 999;
-    transition: left 0.18s cubic-bezier(0.4,0,0.2,1),
-                top  0.18s cubic-bezier(0.4,0,0.2,1);
-    font-size: calc(var(--sq) * 0.76);
-    line-height: 1;
-    will-change: left, top;
-  }
-  #flying-piece.white {
-    color: #ffffff;
-    text-shadow:
-      0 0 2px #1a1005,
-      1px 1px 0 #5a3a00, -1px -1px 0 #5a3a00,
-      1px -1px 0 #5a3a00, -1px 1px 0 #5a3a00,
-      0 2px 4px rgba(0,0,0,0.6);
-  }
-  #flying-piece.black {
-    color: #1a1005;
-    text-shadow:
-      0 0 1px #d4a843,
-      1px 1px 0 #8a6520, -1px -1px 0 #8a6520,
-      1px -1px 0 #8a6520, -1px 1px 0 #8a6520,
-      0 2px 4px rgba(0,0,0,0.5);
-  }
+.topbar-settings {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-2);
+  padding: 0 16px;
+  height: 100%;
+  cursor: default;
+  user-select: none;
+}
 
-  /* ── Right panel ────────────────────────── */
-  .panel {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    width: 300px;
-  }
+/* ── Main layout ─────────────────────────── */
+.workspace {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
 
-  .card {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 14px 16px;
-  }
-  .card h3 {
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--muted);
-    margin-bottom: 10px;
-  }
+/* ── Left sidebar ────────────────────────── */
+.sidebar {
+  width: 220px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
 
-  #status {
-    font-size: 1rem; font-weight: 600; color: var(--gold); min-height: 24px;
-  }
+.sidebar-section {
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.sidebar-section:last-child { border-bottom: none; }
 
-  /* Search grid */
-  .info-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
-  }
-  .info-item { display: flex; flex-direction: column; gap: 2px; }
-  .info-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
-  .info-value { font-size: 1.05rem; font-weight: 700; color: var(--blue); font-variant-numeric: tabular-nums; }
+.sidebar-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-3);
+  margin-bottom: 10px;
+}
 
-  #pv {
-    font-size: 0.78rem; color: var(--muted); word-break: break-all;
-    min-height: 18px; font-family: 'Consolas', monospace; line-height: 1.6;
-  }
-  #last-info {
-    font-size: 0.65rem; color: #6e7681; font-family: 'Consolas', monospace;
-    min-height: 14px; word-break: break-all; margin-top: 6px;
-  }
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+.form-row:last-child { margin-bottom: 0; }
+.form-row label {
+  font-size: 12px;
+  color: var(--text-2);
+  font-weight: 500;
+}
 
-  /* ── Move history (PGN two-column) ─────── */
-  #history {
-    font-size: 0.82rem;
-    font-family: 'Consolas', monospace;
-    color: var(--text);
-    max-height: 180px;
-    overflow-y: auto;
-    line-height: 1;
-  }
-  #history::-webkit-scrollbar { width: 4px; }
-  #history::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+select {
+  appearance: none;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 6px 28px 6px 8px;
+  font-size: 13px;
+  font-family: var(--font);
+  color: var(--text);
+  width: 100%;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
+select:focus { outline: 2px solid var(--navy); outline-offset: -1px; }
 
-  .pgn-row {
-    display: grid;
-    grid-template-columns: 28px 1fr 1fr;
-    gap: 2px;
-    padding: 3px 0;
-    border-bottom: 1px solid rgba(48,54,61,0.4);
-  }
-  .pgn-row:last-child { border-bottom: none; }
-  .pgn-num  { color: var(--muted); font-size: 0.72rem; padding-top: 2px; text-align: right; padding-right: 6px; }
-  .pgn-w    { color: #f0f0f0; padding: 2px 4px; border-radius: 3px; cursor: default; }
-  .pgn-b    { color: #c0c0c0; padding: 2px 4px; border-radius: 3px; cursor: default; }
-  .pgn-w.latest, .pgn-b.latest {
-    background: rgba(240,192,64,0.15);
-    color: var(--gold);
-  }
+.depth-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.depth-row input[type=range] {
+  flex: 1;
+  height: 3px;
+  -webkit-appearance: none;
+  background: var(--border);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+.depth-row input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 13px; height: 13px;
+  border-radius: 50%;
+  background: var(--navy);
+  cursor: pointer;
+}
+.depth-row input[type=range]::-moz-range-thumb {
+  width: 13px; height: 13px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: none;
+  cursor: pointer;
+}
+.depth-val {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  min-width: 18px;
+  text-align: right;
+  font-family: var(--mono);
+}
 
-  /* Controls */
-  .controls { display: flex; flex-direction: column; gap: 8px; }
+.btn {
+  display: block;
+  width: 100%;
+  padding: 7px 12px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: var(--font);
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  transition: background 0.12s, border-color 0.12s;
+  margin-bottom: 6px;
+}
+.btn:last-child { margin-bottom: 0; }
+.btn:hover { background: var(--bg); border-color: #CBD5E1; }
+.btn:active { background: #EFF2F7; }
 
-  .btn {
-    padding: 8px 12px; border: 1px solid var(--border);
-    border-radius: 6px; background: #21262d; color: var(--text);
-    font-size: 0.85rem; cursor: pointer;
-    transition: background 0.15s, border-color 0.15s;
-    width: 100%; text-align: center;
-  }
-  .btn:hover { background: #30363d; border-color: var(--muted); }
-  .btn.primary { background: #1a5c2a; border-color: var(--green); }
-  .btn.primary:hover { background: var(--green); }
-  .btn.danger  { background: #5a1a1a; border-color: #da3633; }
-  .btn.danger:hover  { background: #8b2020; }
-  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-primary {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+.btn-primary:hover { background: #17304F; border-color: #17304F; }
+.btn-primary:active { background: #102441; }
 
-  select, input[type=range] {
-    background: #21262d; color: var(--text);
-    border: 1px solid var(--border); border-radius: 4px;
-    padding: 6px 8px; font-size: 0.85rem; width: 100%;
-  }
+.btn-danger {
+  background: var(--surface);
+  color: var(--danger);
+  border-color: #FECACA;
+}
+.btn-danger:hover { background: var(--danger-bg); border-color: #FCA5A5; }
 
-  .row { display: flex; gap: 8px; align-items: center; }
-  .row label { font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
+/* ── Board area ──────────────────────────── */
+.board-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow: auto;
+}
 
-  /* Connection dot */
-  .conn-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: #da3633; display: inline-block;
-    margin-right: 6px; transition: background 0.3s;
-  }
-  .conn-dot.on { background: var(--green); }
-  #conn-label { font-size: 0.75rem; color: var(--muted); }
+.board-outer {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
 
-  /* Thinking dot */
-  .thinking-dot {
-    display: inline-block; width: 6px; height: 6px;
-    border-radius: 50%; background: var(--gold);
-    animation: pulse 0.8s infinite alternate;
-    margin-left: 6px; vertical-align: middle;
-  }
-  @keyframes pulse { from { opacity: 1; } to { opacity: 0.2; } }
+/* Eval bar */
+.eval-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+.eval-cap {
+  font-size: 10px;
+  font-weight: 600;
+  font-family: var(--mono);
+  color: var(--text-3);
+}
+.eval-bar {
+  width: 18px;
+  height: var(--board);
+  background: #D1D5DB;
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--border);
+}
+.eval-fill-black {
+  position: absolute; top: 0; left: 0;
+  width: 100%;
+  background: #374151;
+  transition: height 0.4s ease;
+}
+.eval-fill-white {
+  position: absolute; bottom: 0; left: 0;
+  width: 100%;
+  background: #F9FAFB;
+  transition: height 0.4s ease;
+}
+.eval-score {
+  font-size: 11px;
+  font-family: var(--mono);
+  font-weight: 500;
+  color: var(--text-2);
+}
 
-  /* Game over overlay */
-  #gameover {
-    display: none; position: fixed; inset: 0;
-    background: rgba(0,0,0,0.75);
-    align-items: center; justify-content: center; z-index: 100;
-  }
-  #gameover.show { display: flex; }
-  .gameover-box {
-    background: var(--panel); border: 1px solid var(--border);
-    border-radius: 12px; padding: 32px 48px; text-align: center;
-  }
-  .gameover-box h2 { font-size: 2rem; color: var(--gold); margin-bottom: 8px; }
-  .gameover-box p  { color: var(--muted); margin-bottom: 24px; }
+/* Board */
+.board-wrap { position: relative; }
 
-  /* Responsive cap */
-  @media (max-width: 900px) {
-    :root { --sq: 52px; }
-    .panel { width: 260px; }
-  }
-  @media (max-width: 640px) {
-    :root { --sq: 42px; }
-    .panel { width: 100%; max-width: 340px; }
-    .board-section { flex-direction: column; align-items: center; }
-    .eval-bar { width: var(--board) !important; height: 20px !important; }
-    .eval-fill-black { top:0; left:0; width:auto; height:100% !important; }
-    .eval-fill-white { bottom:0; right:0; left:auto; width:auto; height:100% !important; }
-  }
+.coord-ranks {
+  position: absolute;
+  left: -16px; top: 0;
+  height: var(--board);
+  display: flex;
+  flex-direction: column;
+}
+.coord-ranks span {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 10px;
+  color: var(--text-3);
+  font-family: var(--mono);
+  font-weight: 500;
+  padding-right: 3px;
+}
+
+.coord-files {
+  display: flex;
+  width: var(--board);
+  margin-top: 4px;
+}
+.coord-files span {
+  flex: 1;
+  text-align: center;
+  font-size: 10px;
+  color: var(--text-3);
+  font-family: var(--mono);
+  font-weight: 500;
+}
+
+#board {
+  width: var(--board);
+  height: var(--board);
+  display: grid;
+  grid-template-columns: repeat(8, var(--sq));
+  grid-template-rows: repeat(8, var(--sq));
+  border: 1px solid #A0856A;
+  user-select: none;
+  position: relative;
+}
+
+.sq {
+  width: var(--sq); height: var(--sq);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+.sq.light { background: var(--light-sq); }
+.sq.dark  { background: var(--dark-sq); }
+.sq.selected  { background: #A8D08D !important; }
+.sq.legal     { background: rgba(80,180,80,0.25) !important; }
+.sq.lastmove  { background: rgba(205,209,111,0.65) !important; }
+.sq:hover     { filter: brightness(1.06); }
+
+.sq.legal:not(.has-piece)::after {
+  content: '';
+  width: 28%; height: 28%;
+  border-radius: 50%;
+  background: rgba(60,140,60,0.45);
+  pointer-events: none;
+}
+.sq.legal.has-piece::after {
+  content: '';
+  position: absolute; inset: 0;
+  box-shadow: inset 0 0 0 4px rgba(60,140,60,0.5);
+  pointer-events: none;
+}
+
+/* Pieces */
+.piece {
+  pointer-events: none;
+  line-height: 1;
+  font-size: calc(var(--sq) * 0.74);
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+.piece.white {
+  color: #FAFAFA;
+  text-shadow:
+    1px 1px 0 #6B4C2A,
+    -1px -1px 0 #6B4C2A,
+    1px -1px 0 #6B4C2A,
+    -1px 1px 0 #6B4C2A,
+    0 0 3px rgba(0,0,0,0.4);
+}
+.piece.black {
+  color: #1C1208;
+  text-shadow:
+    1px 1px 0 #8B6914,
+    -1px -1px 0 #8B6914,
+    1px -1px 0 #8B6914,
+    -1px 1px 0 #8B6914,
+    0 0 2px rgba(0,0,0,0.3);
+}
+
+/* Flying piece */
+#flying-piece {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  line-height: 1;
+  font-size: calc(var(--sq) * 0.74);
+  will-change: left, top;
+  transition: left 0.16s cubic-bezier(0.25,0.46,0.45,0.94),
+              top  0.16s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+#flying-piece.white {
+  color: #FAFAFA;
+  text-shadow: 1px 1px 0 #6B4C2A,-1px -1px 0 #6B4C2A,1px -1px 0 #6B4C2A,-1px 1px 0 #6B4C2A;
+}
+#flying-piece.black {
+  color: #1C1208;
+  text-shadow: 1px 1px 0 #8B6914,-1px -1px 0 #8B6914,1px -1px 0 #8B6914,-1px 1px 0 #8B6914;
+}
+
+/* ── Right panel ─────────────────────────── */
+.right-panel {
+  width: 260px;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+.panel-section {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.panel-section:last-child { border-bottom: none; }
+
+.panel-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-3);
+  margin-bottom: 10px;
+}
+
+/* Stat grid */
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.stat-cell {
+  background: var(--surface);
+  padding: 9px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.stat-lbl {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-3);
+  font-weight: 500;
+}
+.stat-val {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* PV */
+.pv-block {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+}
+.pv-label {
+  font-size: 10px;
+  color: var(--text-3);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+#pv {
+  font-size: 12px;
+  font-family: var(--mono);
+  color: var(--text-2);
+  word-break: break-all;
+  line-height: 1.6;
+}
+
+#last-info {
+  font-size: 10px;
+  font-family: var(--mono);
+  color: var(--text-3);
+  word-break: break-all;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+/* Move table */
+#history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+#history-table thead th {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-3);
+  text-align: left;
+  padding: 0 4px 6px;
+  border-bottom: 1px solid var(--border);
+}
+#history-table td {
+  padding: 4px 4px;
+  color: var(--text);
+  font-family: var(--mono);
+  border-bottom: 1px solid #F1F5F9;
+}
+#history-table td.num {
+  color: var(--text-3);
+  font-size: 11px;
+  width: 24px;
+  text-align: right;
+  padding-right: 8px;
+}
+#history-table tr:last-child td { border-bottom: none; }
+#history-table td.latest {
+  color: var(--navy);
+  font-weight: 600;
+  background: #EFF4FB;
+}
+
+.history-scroll {
+  max-height: 240px;
+  overflow-y: auto;
+}
+.history-scroll::-webkit-scrollbar { width: 4px; }
+.history-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.history-empty {
+  font-size: 12px;
+  color: var(--text-3);
+  font-style: italic;
+  padding: 4px 0;
+}
+
+/* Game over overlay */
+#gameover {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45);
+  align-items: center; justify-content: center;
+  z-index: 100;
+}
+#gameover.show { display: flex; }
+.gameover-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 32px 40px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  max-width: 320px;
+  width: 100%;
+}
+.gameover-box h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.gameover-box p {
+  font-size: 14px;
+  color: var(--text-2);
+  margin-bottom: 20px;
+}
+.gameover-box .btn { display: inline-block; width: auto; padding: 8px 24px; }
+
+/* Responsive */
+@media (max-width: 1100px) {
+  :root { --sq: 58px; }
+  .right-panel { width: 230px; }
+  .sidebar { width: 196px; }
+}
+@media (max-width: 860px) {
+  :root { --sq: 48px; }
+  .sidebar { display: none; }
+  .right-panel { width: 200px; }
+}
+@media (max-width: 680px) {
+  :root { --sq: 40px; }
+  .right-panel { display: none; }
+  .workspace { flex-direction: column; }
+  .board-area { padding: 16px; }
+}
 </style>
 </head>
 <body>
 
-<header>
-  <h1>♞ KNIGHTFALL</h1>
-  <p>Chess Engine Visualization &mdash; Alpha-Beta &middot; Iterative Deepening &middot; Transposition Tables</p>
-</header>
-
-<!-- Flying piece — lives outside board to avoid clipping -->
+<!-- Flying piece lives outside all scrollable containers -->
 <div id="flying-piece" style="display:none"></div>
 
-<div class="layout">
-
-  <!-- Board -->
-  <div class="board-section">
-    <div class="eval-bar-wrap">
-      <span class="eval-label">+∞</span>
-      <div class="eval-bar">
-        <div class="eval-fill-black" id="eval-black" style="height:50%"></div>
-        <div class="eval-fill-white" id="eval-white" style="height:50%"></div>
-      </div>
-      <span class="eval-label">−∞</span>
-      <span class="eval-score" id="eval-score">+0.00</span>
-    </div>
-    <div class="board-wrap">
-      <div id="board"></div>
-      <div class="coord-file" id="coord-file"></div>
-    </div>
+<!-- Topbar -->
+<header class="topbar">
+  <div class="topbar-logo">
+    <div class="logo-mark">♞</div>
+    <span class="logo-text">Knightfall</span>
+    <span class="logo-sub">Chess Engine</span>
   </div>
 
-  <!-- Right panel -->
-  <div class="panel">
+  <div class="topbar-thinking" id="thinking-wrap">
+    <div class="think-bar"></div>
+    <span>Searching&hellip;</span>
+  </div>
 
-    <!-- Status -->
-    <div class="card">
-      <h3>Status</h3>
-      <div style="display:flex;align-items:center;margin-bottom:8px;">
-        <span class="conn-dot" id="conn-dot"></span>
-        <span id="conn-label">Connecting...</span>
-      </div>
-      <div id="status">Waiting for engine...</div>
-      <div id="thinking-wrap" style="display:none">
-        <span style="font-size:0.8rem;color:var(--gold)">Engine thinking</span>
-        <span class="thinking-dot"></span>
-      </div>
-    </div>
+  <div class="topbar-turn">
+    <div class="turn-swatch" id="turn-swatch"></div>
+    <span id="topbar-status-text">Connecting</span>
+  </div>
 
-    <!-- Controls -->
-    <div class="card">
-      <h3>Controls</h3>
-      <div class="controls">
-        <div class="row">
-          <label>Play as</label>
-          <select id="side-select">
-            <option value="white">White</option>
-            <option value="black">Black</option>
-          </select>
+  <div class="topbar-status">
+    <span class="status-dot" id="conn-dot"></span>
+    <span id="conn-label">Disconnected</span>
+  </div>
+
+  <div class="topbar-settings">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+    v1.0
+  </div>
+</header>
+
+<div class="workspace">
+
+  <!-- Board area -->
+  <main class="board-area">
+    <div class="board-outer">
+
+      <!-- Eval bar -->
+      <div class="eval-col">
+        <span class="eval-cap">+</span>
+        <div class="eval-bar">
+          <div class="eval-fill-black" id="eval-black" style="height:50%"></div>
+          <div class="eval-fill-white" id="eval-white" style="height:50%"></div>
         </div>
-        <div class="row">
-          <label>Depth</label>
+        <span class="eval-cap">−</span>
+        <span class="eval-score" id="eval-score">0.00</span>
+      </div>
+
+      <!-- Board + coordinate labels -->
+      <div style="position:relative; padding-left:18px;">
+        <div class="coord-ranks" id="coord-ranks"></div>
+        <div class="board-wrap">
+          <div id="board"></div>
+          <div class="coord-files" id="coord-file"></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Right panel: controls + engine info -->
+  <aside class="right-panel">
+
+    <div class="panel-section">
+      <div class="panel-label">Controls</div>
+      <div class="form-row" style="margin-bottom:8px;">
+        <label for="side-select" style="font-size:12px;color:var(--text-2);font-weight:500;margin-bottom:3px;display:block">Play as</label>
+        <select id="side-select">
+          <option value="white">White</option>
+          <option value="black">Black</option>
+        </select>
+      </div>
+      <div class="form-row" style="margin-bottom:10px;">
+        <label style="font-size:12px;color:var(--text-2);font-weight:500;margin-bottom:3px;display:block">Difficulty</label>
+        <div class="depth-row">
           <input type="range" id="depth-range" min="1" max="8" value="5">
-          <span id="depth-label" style="font-size:0.85rem;min-width:20px;color:var(--gold);font-weight:700">5</span>
+          <span class="depth-val" id="depth-label">5</span>
         </div>
-        <button class="btn primary" id="btn-new">New Game</button>
-        <button class="btn danger"  id="btn-undo">Undo Move</button>
+      </div>
+      <div style="display:flex;gap:6px;">
+        <button class="btn btn-primary" id="btn-new" style="flex:1;margin-bottom:0">New Game</button>
+        <button class="btn btn-danger"  id="btn-undo" style="flex:1;margin-bottom:0">Undo</button>
       </div>
     </div>
 
-    <!-- Search info -->
-    <div class="card">
-      <h3>Search</h3>
-      <div class="info-grid">
-        <div class="info-item">
-          <span class="info-label">Depth</span>
-          <span class="info-value" id="i-depth">—</span>
+    <div class="panel-section" style="flex:1">
+      <div class="panel-label">Search</div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <span class="stat-lbl">Depth</span>
+          <span class="stat-val" id="i-depth">—</span>
         </div>
-        <div class="info-item">
-          <span class="info-label">Score</span>
-          <span class="info-value" id="i-score">—</span>
+        <div class="stat-cell">
+          <span class="stat-lbl">Score</span>
+          <span class="stat-val" id="i-score">—</span>
         </div>
-        <div class="info-item">
-          <span class="info-label">Nodes</span>
-          <span class="info-value" id="i-nodes">—</span>
+        <div class="stat-cell">
+          <span class="stat-lbl">Nodes</span>
+          <span class="stat-val" id="i-nodes">—</span>
         </div>
-        <div class="info-item">
-          <span class="info-label">NPS</span>
-          <span class="info-value" id="i-nps">—</span>
+        <div class="stat-cell">
+          <span class="stat-lbl">NPS</span>
+          <span class="stat-val" id="i-nps">—</span>
         </div>
       </div>
-      <div style="margin-top:10px;">
-        <div class="info-label" style="margin-bottom:4px;">Principal Variation</div>
+      <div class="pv-block">
+        <div class="pv-label">Principal variation</div>
         <div id="pv">—</div>
       </div>
       <div id="last-info"></div>
     </div>
 
+  </aside>
+
+</div>
+
+<!-- Game over overlay -->
+<div id="gameover">
+  <div class="gameover-box">
+    <h2 id="go-title">Game over</h2>
+    <p id="go-subtitle"></p>
+    <button class="btn btn-primary" onclick="newGame()">New game</button>
   </div>
 </div>
 
 <!-- Hidden history container — keeps JS working, not shown in UI -->
 <div id="history" style="display:none"></div>
-
-<!-- Game over overlay -->
-<div id="gameover">
-  <div class="gameover-box">
-    <h2 id="go-title">Game Over</h2>
-    <p id="go-subtitle">—</p>
-    <button class="btn primary" onclick="newGame()">Play Again</button>
-  </div>
+<div id="history-scroll" style="display:none">
+  <div id="history-empty"></div>
+  <table id="history-table"><tbody id="history-body"></tbody></table>
 </div>
 
 <script>
@@ -472,20 +824,20 @@
 //  State
 // ════════════════════════════════════════
 let ws = null;
-let board = [];          // 64 piece chars, '' = empty
+let board = [];
 let selected = -1;
 let legalTargets = [];
 let lastMove = [-1, -1];
 let humanIsWhite = true;
 let flipped = false;
-let moveHistory = [];    // {white, black}[]
+let moveHistory = [];
 let depth = 5;
 let thinking = false;
 let gameOver = false;
 let isHumanTurn_local = true;
-let boardTurn = 'white';       // tracks whose turn it actually is (for history)
-let animating = false;         // true while a slide animation is in flight
-let searchGen = 0;             // incremented on undo/newgame; stale enginemove msgs are discarded
+let boardTurn = 'white';
+let animating = false;
+let searchGen = 0;
 
 const PIECES = {
   'P':'♙','N':'♘','B':'♗','R':'♖','Q':'♕','K':'♔',
@@ -493,12 +845,11 @@ const PIECES = {
 };
 
 // ════════════════════════════════════════
-//  Smooth slide animation
+//  Animation
 // ════════════════════════════════════════
 function getSquareRect(sq) {
   const el = document.querySelector(`[data-sq="${sq}"]`);
-  if (!el) return null;
-  return el.getBoundingClientRect();
+  return el ? el.getBoundingClientRect() : null;
 }
 
 function animateMove(fromSq, toSq, pieceChar, colorClass, callback) {
@@ -513,55 +864,53 @@ function animateMove(fromSq, toSq, pieceChar, colorClass, callback) {
   fp.style.display = 'block';
 
   const sqSize = fromRect.width;
-  const offsetX = (sqSize - sqSize * 0.76) / 2;
-  const offsetY = offsetX;
+  const off = (sqSize - sqSize * 0.74) / 2;
 
   fp.style.transition = 'none';
-  fp.style.left = (fromRect.left + offsetX) + 'px';
-  fp.style.top  = (fromRect.top  + offsetY) + 'px';
-
+  fp.style.left = (fromRect.left + off) + 'px';
+  fp.style.top  = (fromRect.top  + off) + 'px';
   fp.getBoundingClientRect();
-  fp.style.transition = 'left 0.18s cubic-bezier(0.4,0,0.2,1), top 0.18s cubic-bezier(0.4,0,0.2,1)';
-  fp.style.left = (toRect.left + offsetX) + 'px';
-  fp.style.top  = (toRect.top  + offsetY) + 'px';
+  fp.style.transition = 'left 0.16s cubic-bezier(0.25,0.46,0.45,0.94), top 0.16s cubic-bezier(0.25,0.46,0.45,0.94)';
+  fp.style.left = (toRect.left + off) + 'px';
+  fp.style.top  = (toRect.top  + off) + 'px';
 
-  setTimeout(() => {
-    fp.style.display = 'none';
-    animating = false;
-    callback();
-  }, 190);
+  setTimeout(() => { fp.style.display = 'none'; animating = false; callback(); }, 175);
 }
 
 // ════════════════════════════════════════
 //  Board rendering
 // ════════════════════════════════════════
 function sqToVisual(sq) {
-  const rank = Math.floor(sq / 8);
-  const file = sq % 8;
-  if (flipped) return rank * 8 + (7 - file);  // Black perspective: rank 1 at top, file h on left
-  return (7 - rank) * 8 + file;               // White perspective: rank 8 at top, file a on left
+  const rank = Math.floor(sq / 8), file = sq % 8;
+  if (flipped) return rank * 8 + (7 - file);
+  return (7 - rank) * 8 + file;
 }
-
 function visualToSq(visual) {
-  const r = Math.floor(visual / 8);
-  const f = visual % 8;
+  const r = Math.floor(visual / 8), f = visual % 8;
   if (flipped) return r * 8 + (7 - f);
   return (7 - r) * 8 + f;
 }
-
 function isWhitePieceChar(c) { return c && c === c.toUpperCase(); }
 
 function buildBoard(hideSq) {
   const el = document.getElementById('board');
   el.innerHTML = '';
 
+  // File labels
   const cf = document.getElementById('coord-file');
   cf.innerHTML = '';
   const files = flipped ? 'hgfedcba' : 'abcdefgh';
   for (const f of files) {
+    const s = document.createElement('span'); s.textContent = f; cf.appendChild(s);
+  }
+
+  // Rank labels
+  const cr = document.getElementById('coord-ranks');
+  cr.innerHTML = '';
+  for (let r = 0; r < 8; r++) {
     const s = document.createElement('span');
-    s.textContent = f;
-    cf.appendChild(s);
+    s.textContent = flipped ? (r + 1) : (8 - r);
+    cr.appendChild(s);
   }
 
   for (let visual = 0; visual < 64; visual++) {
@@ -573,15 +922,6 @@ function buildBoard(hideSq) {
     div.className = 'sq ' + (((r + f) % 2 === 0) ? 'light' : 'dark');
     div.dataset.sq = sq;
 
-    // Rank label on leftmost file
-    if (f === 0) {
-      const lbl = document.createElement('span');
-      lbl.style.cssText = 'position:absolute;left:3px;top:2px;font-size:0.6rem;color:rgba(0,0,0,0.4);pointer-events:none';
-      lbl.textContent = flipped ? (r + 1) : (8 - r);
-      div.appendChild(lbl);
-    }
-
-    // Piece — hide the source square during animation
     const pieceChar = board[sq];
     if (pieceChar && sq !== hideSq) {
       const p = document.createElement('span');
@@ -600,12 +940,9 @@ function buildBoard(hideSq) {
   }
 }
 
-function renderBoard(pieces, newLastMove) {
+function renderBoard(pieces) {
   board = new Array(64).fill('');
   for (const p of pieces) board[p.sq] = p.piece;
-  if (newLastMove) lastMove = newLastMove;
-  // Don't interrupt an in-flight animation — buildBoard will be called
-  // by the animation callback once it finishes.
   if (!animating) buildBoard();
 }
 
@@ -614,14 +951,11 @@ function renderBoard(pieces, newLastMove) {
 // ════════════════════════════════════════
 function onSquareClick(sq) {
   if (gameOver || thinking || !isHumanTurn_local) return;
-
   const piece = board[sq];
 
   if (selected === -1) {
-    if (!piece) return;
-    if (isWhitePieceChar(piece) !== humanIsWhite) return;
-    selected = sq;
-    legalTargets = [];
+    if (!piece || isWhitePieceChar(piece) !== humanIsWhite) return;
+    selected = sq; legalTargets = [];
     ws.send(JSON.stringify({type:'getmoves', sq: String(sq)}));
     buildBoard();
 
@@ -629,40 +963,27 @@ function onSquareClick(sq) {
     selected = -1; legalTargets = []; buildBoard();
 
   } else if (legalTargets.includes(sq)) {
-    const from = selected;
-    const to   = sq;
+    const from = selected, to = sq;
     const movingPiece = board[from];
-    // Derive color from the piece itself — 100% reliable regardless of message timing
     const movingIsWhite = isWhitePieceChar(movingPiece);
     selected = -1; legalTargets = [];
 
     let moveStr = sqToAlg(from) + sqToAlg(to);
-    if ((movingPiece==='P' && Math.floor(to/8)===7) ||
-        (movingPiece==='p' && Math.floor(to/8)===0)) {
-      moveStr += 'q';
-    }
+    if ((movingPiece === 'P' && Math.floor(to/8) === 7) ||
+        (movingPiece === 'p' && Math.floor(to/8) === 0)) moveStr += 'q';
 
-    const colorClass = isWhitePieceChar(movingPiece) ? 'white' : 'black';
-
-    // Optimistically update local board state
-    board[to] = board[from];
-    board[from] = '';
-
-    // Show board with source hidden, then animate
+    const colorClass = movingIsWhite ? 'white' : 'black';
+    board[to] = board[from]; board[from] = '';
     buildBoard(from);
     animateMove(from, to, movingPiece, colorClass, () => {
-      // Animation done — server's position message may have already
-      // updated board[], so just refresh with correct lastMove highlight
-      lastMove = [from, to];
-      buildBoard();
+      lastMove = [from, to]; buildBoard();
       addToHistory(moveStr, movingIsWhite);
     });
 
     thinking = true;
-    const sentGen = searchGen;   // capture generation for this search
+    const sentGen = searchGen;
     setThinking(true);
     ws.send(JSON.stringify({type:'move', move:moveStr, depth}));
-    // Store sentGen so enginemove handler can verify it
     window._pendingGen = sentGen;
 
   } else {
@@ -685,13 +1006,10 @@ function sqToAlg(sq) {
 // ════════════════════════════════════════
 function updateEval(cp) {
   const clamped = Math.max(-1000, Math.min(1000, cp));
-  // White% = 50 + cp/20 (capped at 5–95 so bar never goes 100%)
   const whitePct = Math.max(5, Math.min(95, 50 + clamped / 20));
   const blackPct = 100 - whitePct;
-
   document.getElementById('eval-white').style.height = whitePct + '%';
   document.getElementById('eval-black').style.height = blackPct + '%';
-
   const display = Math.abs(cp) > 9000
     ? (cp > 0 ? '+M' : '-M')
     : (cp >= 0 ? '+' : '') + (cp / 100).toFixed(2);
@@ -703,10 +1021,7 @@ function updateEval(cp) {
 //  Info parsing
 // ════════════════════════════════════════
 function parseInfoLine(line) {
-  const get = (key) => {
-    const m = line.match(new RegExp(key + '\\s+(\\S+)'));
-    return m ? m[1] : null;
-  };
+  const get = k => { const m = line.match(new RegExp(k + '\\s+(\\S+)')); return m ? m[1] : null; };
   const d = get('depth'), score = get('cp'), nodes = get('nodes'), nps = get('nps');
   const pv = line.match(/pv\s+(.+)$/);
   if (d)     document.getElementById('i-depth').textContent = d;
@@ -716,16 +1031,15 @@ function parseInfoLine(line) {
   if (pv)    document.getElementById('pv').textContent = pv[1].trim();
   document.getElementById('last-info').textContent = line;
 }
-
 function fmtNum(n) {
-  if (n >= 1e9) return (n/1e9).toFixed(1) + 'B';
-  if (n >= 1e6) return (n/1e6).toFixed(1) + 'M';
-  if (n >= 1e3) return (n/1e3).toFixed(1) + 'K';
+  if (n >= 1e9) return (n/1e9).toFixed(1)+'B';
+  if (n >= 1e6) return (n/1e6).toFixed(1)+'M';
+  if (n >= 1e3) return (n/1e3).toFixed(1)+'K';
   return String(n);
 }
 
 // ════════════════════════════════════════
-//  Move history — PGN two-column
+//  Move history
 // ════════════════════════════════════════
 function addToHistory(move, isWhite) {
   if (isWhite) {
@@ -740,41 +1054,62 @@ function addToHistory(move, isWhite) {
 }
 
 function renderHistory() {
-  const el = document.getElementById('history');
-  if (moveHistory.length === 0) {
-    el.innerHTML = '<span style="color:var(--muted);font-size:0.8rem">No moves yet</span>';
-    return;
-  }
-  // Determine which cell is the latest move
-  const lastIdx = moveHistory.length - 1;
-  const lastRow = moveHistory[lastIdx];
-  const latestIsBlack = lastRow.black !== '';
+  const tbody = document.getElementById('history-body');
+  const empty = document.getElementById('history-empty');
+  const table = document.getElementById('history-table');
+  const scroll = document.getElementById('history-scroll');
 
-  el.innerHTML = moveHistory.map((m, i) => {
+  if (moveHistory.length === 0) {
+    empty.style.display = ''; table.style.display = 'none'; return;
+  }
+  empty.style.display = 'none'; table.style.display = '';
+
+  const lastIdx = moveHistory.length - 1;
+  const latestIsBlack = moveHistory[lastIdx].black !== '';
+
+  tbody.innerHTML = moveHistory.map((m, i) => {
     const isLast = (i === lastIdx);
-    const wClass = (isLast && !latestIsBlack) ? 'pgn-w latest' : 'pgn-w';
-    const bClass = (isLast && latestIsBlack)  ? 'pgn-b latest' : 'pgn-b';
-    return `<div class="pgn-row">
-      <span class="pgn-num">${i+1}.</span>
-      <span class="${wClass}">${m.white || ''}</span>
-      <span class="${bClass}">${m.black || ''}</span>
-    </div>`;
+    const wCls = (isLast && !latestIsBlack) ? 'latest' : '';
+    const bCls = (isLast && latestIsBlack)  ? 'latest' : '';
+    return `<tr>
+      <td class="num">${i+1}</td>
+      <td class="${wCls}">${m.white || ''}</td>
+      <td class="${bCls}">${m.black || ''}</td>
+    </tr>`;
   }).join('');
-  el.scrollTop = el.scrollHeight;
+  scroll.scrollTop = scroll.scrollHeight;
 }
 
-// Pop the last N half-moves from history
 function popHistory(halfmoves) {
   for (let i = 0; i < halfmoves; i++) {
-    if (moveHistory.length === 0) break;
+    if (!moveHistory.length) break;
     const last = moveHistory[moveHistory.length - 1];
-    if (last.black !== '') {
-      last.black = '';
-    } else {
-      moveHistory.pop();
-    }
+    if (last.black !== '') last.black = '';
+    else moveHistory.pop();
   }
   renderHistory();
+}
+
+// ════════════════════════════════════════
+//  Status helpers
+// ════════════════════════════════════════
+function setThinking(on) {
+  document.getElementById('thinking-wrap').classList.toggle('on', on);
+  if (on) {
+    document.getElementById('topbar-status-text').textContent = 'Engine thinking';
+  }
+}
+
+function setTurnDisplay(whiteTurn) {
+  const swatch = document.getElementById('turn-swatch');
+  const label  = document.getElementById('topbar-status-text');
+  if (whiteTurn) {
+    swatch.className = 'turn-swatch';
+    label.textContent = 'White to move';
+  } else {
+    swatch.className = 'turn-swatch black-turn';
+    label.textContent = 'Black to move';
+  }
 }
 
 // ════════════════════════════════════════
@@ -789,28 +1124,25 @@ function connect() {
     document.getElementById('conn-label').textContent = 'Connected';
     ws.send(JSON.stringify({type:'init'}));
   };
-
   ws.onclose = () => {
     document.getElementById('conn-dot').classList.remove('on');
-    document.getElementById('conn-label').textContent = 'Reconnecting...';
+    document.getElementById('conn-label').textContent = 'Disconnected';
+    document.getElementById('topbar-status-text').textContent = 'Reconnecting';
     setTimeout(connect, 1500);
   };
-
   ws.onerror = () => {
-    document.getElementById('conn-label').textContent = 'Connection error';
+    document.getElementById('conn-label').textContent = 'Error';
   };
 
   ws.onmessage = (evt) => {
     const msg = JSON.parse(evt.data);
 
     if (msg.type === 'position') {
-      boardTurn = msg.turn;  // track actual turn for history
+      boardTurn = msg.turn;
       const whiteTurn = msg.turn === 'white';
       isHumanTurn_local = (whiteTurn === humanIsWhite);
-      // Update board data but don't override lastMove if animation running
       renderBoard(msg.pieces);
-      document.getElementById('status').textContent =
-        (whiteTurn ? '⬜ White' : '⬛ Black') + ' to move';
+      if (!thinking) setTurnDisplay(whiteTurn);
 
     } else if (msg.type === 'settings') {
       humanIsWhite = msg.humanIsWhite;
@@ -823,94 +1155,64 @@ function connect() {
       parseInfoLine(msg.line);
 
     } else if (msg.type === 'enginemove') {
-      // Discard if this search was invalidated by an undo or new game
       if (window._pendingGen !== searchGen) return;
-
-      thinking = false;
-      setThinking(false);
+      thinking = false; setThinking(false);
       const mv = msg.move;
       const fIdx = mv.charCodeAt(0)-'a'.charCodeAt(0) + (mv.charCodeAt(1)-'1')*8;
       const tIdx = mv.charCodeAt(2)-'a'.charCodeAt(0) + (mv.charCodeAt(3)-'1')*8;
-
-      // Derive engine color from the piece on the board (reliable, no timing issues)
       const enginePiece = board[fIdx];
       const engineIsWhite = enginePiece ? isWhitePieceChar(enginePiece) : !humanIsWhite;
-
-      // Animate engine move
       if (enginePiece) {
         const colorClass = engineIsWhite ? 'white' : 'black';
-        board[tIdx] = board[fIdx];
-        board[fIdx] = '';
+        board[tIdx] = board[fIdx]; board[fIdx] = '';
         buildBoard(fIdx);
-        animateMove(fIdx, tIdx, enginePiece, colorClass, () => {
-          lastMove = [fIdx, tIdx];
-          buildBoard();
-        });
+        animateMove(fIdx, tIdx, enginePiece, colorClass, () => { lastMove = [fIdx, tIdx]; buildBoard(); });
       }
-
       addToHistory(mv, engineIsWhite);
       updateEval(msg.score);
       isHumanTurn_local = true;
-      document.getElementById('status').textContent =
-        (humanIsWhite ? '⬜ White' : '⬛ Black') + ' to move';
+      setTurnDisplay(humanIsWhite);
 
     } else if (msg.type === 'legalmoves') {
-      legalTargets = msg.moves;
-      buildBoard();
+      legalTargets = msg.moves; buildBoard();
 
     } else if (msg.type === 'history') {
-      // Server sends the full game log — rebuild moveHistory from scratch.
-      // Each entry: {uci, color} where color='w' or 'b'
       humanIsWhite = msg.humanIsWhite;
       moveHistory = [];
-      for (const hm of msg.moves) {
-        const isWhiteMove = (hm.color === 'w');
-        addToHistory(hm.uci, isWhiteMove);
-      }
+      for (const hm of msg.moves) addToHistory(hm.uci, hm.color === 'w');
 
     } else if (msg.type === 'undo') {
-      searchGen++;             // invalidate any in-flight engine response
-      thinking = false;
-      setThinking(false);
+      searchGen++;
+      thinking = false; setThinking(false);
       gameOver = false;
       document.getElementById('gameover').classList.remove('show');
       popHistory(msg.halfmoves);
       selected = -1; legalTargets = [];
-      document.getElementById('status').textContent = 'Move undone';
+      setTurnDisplay(humanIsWhite);
 
     } else if (msg.type === 'gameover') {
-      gameOver = true;
-      thinking = false;
-      setThinking(false);
-      const titles = {checkmate:'Checkmate!', stalemate:'Stalemate!'};
-      const subs   = {white:'⬜ White wins!', black:'⬛ Black wins!', none:'Draw'};
-      document.getElementById('go-title').textContent = titles[msg.reason] || 'Game Over';
-      document.getElementById('go-subtitle').textContent = subs[msg.winner] || '';
+      gameOver = true; thinking = false; setThinking(false);
+      const titles = {checkmate:'Checkmate', stalemate:'Stalemate'};
+      const subs   = {white:'White wins', black:'Black wins', none:'Draw'};
+      document.getElementById('go-title').textContent    = titles[msg.reason] || 'Game over';
+      document.getElementById('go-subtitle').textContent = subs[msg.winner]   || '';
       document.getElementById('gameover').classList.add('show');
 
     } else if (msg.type === 'error') {
-      document.getElementById('status').textContent = '⚠ ' + msg.msg;
+      document.getElementById('topbar-status-text').textContent = msg.msg;
     }
   };
-}
-
-function setThinking(on) {
-  document.getElementById('thinking-wrap').style.display = on ? 'block' : 'none';
-  if (on) document.getElementById('status').textContent = '🔍 Engine thinking...';
 }
 
 // ════════════════════════════════════════
 //  Controls
 // ════════════════════════════════════════
 function newGame() {
-  searchGen++;               // invalidate any in-flight engine response
-  gameOver = false;
-  moveHistory = [];
-  lastMove = [-1, -1];
-  selected = -1; legalTargets = [];
-  thinking = false; animating = false;
+  searchGen++;
+  gameOver = false; thinking = false; animating = false;
+  moveHistory = []; lastMove = [-1,-1]; selected = -1; legalTargets = [];
   boardTurn = 'white';
-  window._pendingGen = searchGen;  // align so next engine response is accepted
+  window._pendingGen = searchGen;
   setThinking(false);
   document.getElementById('gameover').classList.remove('show');
   renderHistory();
@@ -918,28 +1220,26 @@ function newGame() {
   document.getElementById('i-depth').textContent = '—';
   document.getElementById('i-score').textContent = '—';
   document.getElementById('i-nodes').textContent = '—';
-  document.getElementById('i-nps').textContent = '—';
+  document.getElementById('i-nps').textContent   = '—';
   document.getElementById('last-info').textContent = '';
   updateEval(0);
-
   const side = document.getElementById('side-select').value;
   humanIsWhite = (side === 'white');
   isHumanTurn_local = humanIsWhite;
-  flipped = !humanIsWhite;   // flip board when playing as Black
-
+  flipped = !humanIsWhite;
+  setTurnDisplay(humanIsWhite);
   ws.send(JSON.stringify({type:'newgame', side, depth}));
 }
 
 document.getElementById('btn-new').onclick = newGame;
 
 document.getElementById('side-select').onchange = function() {
-  // Flip the board immediately when the user changes side — no need to start a new game yet
   flipped = (this.value === 'black');
   buildBoard();
 };
 
 document.getElementById('btn-undo').onclick = () => {
-  if (thinking) return; // don't undo while engine is thinking
+  if (thinking) return;
   ws.send(JSON.stringify({type:'undo'}));
 };
 
@@ -948,9 +1248,7 @@ document.getElementById('depth-range').oninput = function() {
   document.getElementById('depth-label').textContent = depth;
 };
 
-// ════════════════════════════════════════
-//  Init
-// ════════════════════════════════════════
+// Init
 board = new Array(64).fill('');
 buildBoard();
 connect();

@@ -61,7 +61,7 @@ Move UCIProtocol::parseMove(const std::string& s) {
 // ──────────────────────────────────────────
 void UCIProtocol::handleUCI() {
     std::cout << "id name Knightfall\n";
-    std::cout << "id author Knightfall Dev\n";
+    std::cout << "id author Paridhi Mittal\n";
     std::cout << "option name Hash type spin default 16 min 1 max 256\n";
     std::cout << "uciok\n";
     std::cout.flush();
