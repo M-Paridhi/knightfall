@@ -279,6 +279,11 @@ SearchResult Searcher::search(Board& board, const SearchLimits& limits) {
             std::cout << " pv "
                       << char('a' + fileOf(f)) << char('1' + rankOf(f))
                       << char('a' + fileOf(t)) << char('1' + rankOf(t));
+            // Promotion piece must be appended — required by UCI spec
+            if (moveType(result.bestMove) == PROMOTION) {
+                const char* pp = "nbrq";
+                std::cout << pp[movePromotion(result.bestMove) - KNIGHT];
+            }
         }
         std::cout << "\n";
         std::cout.flush();
